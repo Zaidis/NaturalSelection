@@ -45,7 +45,7 @@ public class Mate : Behaviour
 
                 mateAI.pregnant = true;
 
-                GeneticAlgorithm.instance.CopyStats(myAI.stats, mateAI.mateStats);
+                GeneticAlgorithm.instance.CopyStats(mateAI.mateStats, myAI.stats);
 
                 //mateAI.mateStats = myAI.GetComponent<BunnyStats>();
 

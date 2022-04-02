@@ -267,7 +267,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   destination: {x: 0, y: 0, z: 0}
-  speed: 2
+  myStats: {fileID: 5534368328056184291}
 --- !u!114 &4957052145704350547
 MonoBehaviour:
   m_ObjectHideFlags: 0
