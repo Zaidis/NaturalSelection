@@ -15,7 +15,7 @@ public class GeneticAlgorithm : MonoBehaviour
         float femaleRate = female.fertality * female.foodConsumption;
         float maleRate = male.fertality * male.foodConsumption;
         float birthRate = femaleRate * maleRate;
-
+        
         //most babies = 12 for the average female bunny
         for(int i = 0; i < 12; i++){
             if(BirthChance(birthRate)){
@@ -42,7 +42,7 @@ public class GeneticAlgorithm : MonoBehaviour
         
     }
 
-    private float MutationMaster(BunnyStats child, BunnyStats dad, BunnyStats mom, float m){
+    private void MutationMaster(BunnyStats child, BunnyStats dad, BunnyStats mom, float m){
         //fertility
         if(DiceRoll(0, 101, m)){ //bunny is mutated
             child.fertality = MutateFloat(dad.fertality, mom.fertality, m);
@@ -108,7 +108,7 @@ public class GeneticAlgorithm : MonoBehaviour
     }
     private float MutateFloat(float dadValue, float momValue, float mutationRate){
         if(DiceRoll(0, 101, mutateOverhaulChance)){
-            return (float)Random.range(0,0.99);
+            return (float)Random.Range(0f,0.99f);
         }
         mutationRate /= mutationPercentage; 
         float rand = Random.Range(dadValue, momValue);
@@ -128,7 +128,7 @@ public class GeneticAlgorithm : MonoBehaviour
         return false;
         
     }
-    private bool DiceRoll(int i, int j, int m){
+    private bool DiceRoll(int i, int j, float m){
         int rand = Random.Range(i, j);
 
         if(m >= rand){
