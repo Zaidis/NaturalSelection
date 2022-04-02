@@ -18,6 +18,12 @@ public class BunnyAI : MonoBehaviour
     public List<GameObject> carrots = new List<GameObject>();
     public List<GameObject> bunnies = new List<GameObject>();
 
+    public int timesMated = 0;
+    public bool pregnant = false;
+    float pregnancyTime = 0f;
+
+    public bool behaviourLocked = false;
+
     void Start()
     {
         
@@ -30,29 +36,43 @@ public class BunnyAI : MonoBehaviour
             DecideBehaviour(false);
         }
 
+        if (pregnant) {
+            pregnancyTime += Time.deltaTime;
+            if (pregnancyTime >= 10f) { //*pregnancyduration
+                Debug.Log("Give Birth");
+                pregnant = false;
+                pregnancyTime = 0f;
+            }
+        }
+
         if (currentBehaviour != null) {
             currentBehaviour.UpdateBehaviour();
             //Debug.Log(currentBehaviour.behaviour);
         }
+
+        
         
     }
 
     public void DecideBehaviour(bool refresh) {
+        if (behaviourLocked) {
+            return;
+        }
         //GATHER INFO
         float detectionDistance = 10f;
         //NERBY CARROTS
         DetectCarrots(detectionDistance);
 
         //NERBY MATES
-        DetectBunnies(detectionDistance);
+        DetectBunnies(detectionDistance); //Only Ladies
 
         //TRUCK
         
 
         //MAKE DECISION
         float idleWeight = 1f;
-        float forageWeight = 5f * carrots.Count;// stats.hungryWeight;
-        float mateWeight = 0f * bunnies.Count;
+        float forageWeight = 1f * carrots.Count;// stats.hungryWeight;
+        float mateWeight = 1f * bunnies.Count * stats.gender / (1f + timesMated);
         float fleeWeight = 0f;
         float wanderWeight = 0f;
 
@@ -76,7 +96,7 @@ public class BunnyAI : MonoBehaviour
         
     }
 
-    void SetBehaviour(BehaviourType type, bool refresh) {
+    public void SetBehaviour(BehaviourType type, bool refresh) {
         if (currentBehaviour != null && !refresh && type == currentBehaviour.behaviour) {
             return;
         }
@@ -104,12 +124,20 @@ public class BunnyAI : MonoBehaviour
     }
 
     void DetectBunnies(float detectionDistance) {
-        RaycastHit[] bunnyHits = Physics.SphereCastAll(transform.position, detectionDistance, Vector3.up, .01f, carrotMask, QueryTriggerInteraction.Collide);
+        if (stats.gender == 0) {
+            return;
+        }
+
+        RaycastHit[] bunnyHits = Physics.SphereCastAll(transform.position, detectionDistance, Vector3.up, .01f, bunnyMask, QueryTriggerInteraction.Collide);
         GameObject[] bun = new GameObject[bunnyHits.Length];
-        for (int i = 0; i < bunnyHits.Length; i++)
-        {
+        for (int i = 0; i < bunnyHits.Length; i++){
             bun[i] = bunnyHits[i].collider.gameObject;
         }
-        bunnies = bun.ToList();
+        bunnies.Clear();
+        for (int i = 0; i < bun.Length; i++) {
+            if (bun[i].GetComponent<BunnyStats>().gender == 0 && !bun[i].GetComponent<BunnyAI>().pregnant) {
+                bunnies.Add(bun[i]);
+            }
+        }
     }
 }
