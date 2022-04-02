@@ -31,6 +31,15 @@ public class BunnyManager : MonoBehaviour
     public int males, females;
     public float fertality, speed, earSize;
 
+    int[] maleGraph = new int[60];
+    int[] femaleGraph = new int[60];
+
+    int[] fertalityGraph = new int[60];
+    int[] speedGraph = new int[60];
+    int[] earSizeGraph = new int[60];
+
+    int graphTimeIndex = 0;
+
     void Start(){
         terrainWidth = GameManager.instance.terrain.terrainData.size.x;
         terrainLength = GameManager.instance.terrain.terrainData.size.z;
@@ -48,7 +57,9 @@ public class BunnyManager : MonoBehaviour
         timer += Time.unscaledDeltaTime;
         if (timer >= 1f) {
             timer = 0f;
+            graphTimeIndex = (graphTimeIndex + 1) % 60;
             UpdateAverages();
+            GraphValues();
         }
 
     }
@@ -91,5 +102,18 @@ public class BunnyManager : MonoBehaviour
 
         males = male;
         females = fem;
+
+        maleGraph[graphTimeIndex] = males;
+        femaleGraph[graphTimeIndex] = females;
+
+        fertalityGraph[graphTimeIndex] = (int)(fertality * 100);
+        speedGraph[graphTimeIndex] = (int)(speed * 100);
+        earSizeGraph[graphTimeIndex] = (int)(earSize * 100);
+
+
+    }
+
+    void GraphValues() {
+
     }
 }
