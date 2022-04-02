@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Cloud : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    private float deathTimer = 60;
+    private void Update() { 
+        //cloud movement
+        transform.position += Vector3.forward * 0.05f;
+
+        deathTimer -= Time.deltaTime;
+
+        if(deathTimer <= 0) {
+            Destroy(this.gameObject);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
