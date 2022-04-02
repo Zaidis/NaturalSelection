@@ -16,4 +16,10 @@ public class BunnyStats : MonoBehaviour
     public float mutationRate{get; set;}
 
     public float jumpHeight{get; set;} //dad
+
+    //behavior weights
+    public float scaredWeight { get; set; }
+    public float hornyWeight { get; set; }
+    public float hungryWeight { get; set; }
+    public float boredWeight { get; set; }
 }
