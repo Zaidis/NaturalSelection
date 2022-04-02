@@ -5,9 +5,10 @@ using System.Linq;
 
 public class BunnyAI : MonoBehaviour
 {
+    [SerializeField] BunnyStats stats;
 
     public Behaviour[] behaviours;
-    Behaviour currentBehaviour;
+    [SerializeField] Behaviour currentBehaviour;
 
     float behaviourCheckRate = 2f; //reduce with intelligence
     float t = 0f;
@@ -25,13 +26,18 @@ public class BunnyAI : MonoBehaviour
     void Update(){
         t += Time.deltaTime;
         if (t >= behaviourCheckRate) {
-            DecideBehaviour();
+            t = 0;
+            DecideBehaviour(false);
         }
 
-        currentBehaviour.UpdateBehaviour();
+        if (currentBehaviour != null) {
+            currentBehaviour.UpdateBehaviour();
+            //Debug.Log(currentBehaviour.behaviour);
+        }
+        
     }
 
-    public void DecideBehaviour() {
+    public void DecideBehaviour(bool refresh) {
         //GATHER INFO
         float detectionDistance = 10f;
         //NERBY CARROTS
@@ -45,29 +51,41 @@ public class BunnyAI : MonoBehaviour
 
         //MAKE DECISION
         float idleWeight = 1f;
-        float forageWeight = 1f;
+        float forageWeight = 5f * carrots.Count;// stats.hungryWeight;
+        float mateWeight = 0f * bunnies.Count;
+        float fleeWeight = 0f;
+        float wanderWeight = 0f;
 
-        float total = idleWeight + forageWeight;
+        float total = idleWeight + forageWeight + mateWeight + fleeWeight + wanderWeight;
 
         float rand = Random.Range(0f, total);
 
+        //ACTIVATE BEHAVIOUR
         if (rand <= idleWeight){
-            SetBehaviour(BehaviourType.Idle);
+            SetBehaviour(BehaviourType.Idle, refresh);
         }
         else if (rand <= forageWeight + idleWeight) {
-            SetBehaviour(BehaviourType.Forage);
+            SetBehaviour(BehaviourType.Forage, refresh);
+        }else if (rand <= mateWeight + forageWeight + idleWeight) {
+            SetBehaviour(BehaviourType.Mate, refresh);
+        }else if (rand <= fleeWeight + mateWeight + forageWeight + idleWeight) {
+            SetBehaviour(BehaviourType.Flee, refresh);
+        }else if (rand <= wanderWeight + fleeWeight + mateWeight + forageWeight + idleWeight) {
+            SetBehaviour(BehaviourType.Wander, refresh);
         }
-        //ACTIVATE BEHAVIOUR
+        
     }
 
-    void SetBehaviour(BehaviourType type) {
-        if (type == currentBehaviour.behaviour) {
+    void SetBehaviour(BehaviourType type, bool refresh) {
+        if (currentBehaviour != null && !refresh && type == currentBehaviour.behaviour) {
             return;
         }
 
         for (int i = 0; i < behaviours.Length; i++) {
             if (behaviours[i].behaviour == type) {
-                currentBehaviour.EndBehaviour();
+                if (currentBehaviour != null){
+                    currentBehaviour.EndBehaviour();
+                }
                 currentBehaviour = behaviours[i];
                 currentBehaviour.StartBehaviour();
                 return;
