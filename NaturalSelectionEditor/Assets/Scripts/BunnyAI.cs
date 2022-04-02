@@ -5,7 +5,7 @@ using System.Linq;
 
 public class BunnyAI : MonoBehaviour
 {
-    [SerializeField] BunnyStats stats;
+    public BunnyStats stats;
     public BunnyAnimator anim;
 
     public Behaviour[] behaviours;
@@ -47,6 +47,8 @@ public class BunnyAI : MonoBehaviour
             adult = true;
         }
 
+        stats.satiation = Mathf.Clamp(stats.satiation - Time.deltaTime * 0.01f, 0f, 1f);
+
         if (pregnant) {
             pregnancyTime += Time.deltaTime;
             if (pregnancyTime >= 30f * stats.pregnancyDuration) { //*pregnancyduration
@@ -83,8 +85,8 @@ public class BunnyAI : MonoBehaviour
 
         //MAKE DECISION
         float idleWeight = 1f * stats.lazyWeight;
-        float forageWeight = 1f * stats.hungryWeight * carrots.Count;// stats.hungryWeight;
-        float mateWeight = 1f * stats.hornyWeight * bunnies.Count * stats.gender / (1f + timesMated);
+        float forageWeight = 1f * stats.hungryWeight * (1 - stats.satiation) * carrots.Count;// stats.hungryWeight;
+        float mateWeight = 1f * stats.hornyWeight * stats.satiation * bunnies.Count * stats.gender / (1f + timesMated);
         float fleeWeight = 0f * stats.scaredWeight;
         float wanderWeight = 1f * stats.boredWeight;
 

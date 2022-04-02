@@ -36,6 +36,7 @@ public class Forage : Behaviour
             {
                 //DONE EATING
                 myAI.behaviourLocked = false;
+                myAI.stats.satiation = Mathf.Clamp(myAI.stats.satiation + (1 - myAI.stats.satiation) * myAI.stats.foodConsumption, 0f, 1f);
                 Destroy(carrot);
             }
         }
