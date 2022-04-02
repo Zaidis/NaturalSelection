@@ -23,6 +23,11 @@ public class CarMovement : MonoBehaviour
     [SerializeField] ForceMode forceMode;
     [SerializeField] bool isTrailer;
 
+    private void Awake()
+    {
+        if (isTrailer)
+            FindObjectOfType<PlayerInput>().actions["Move"].performed += InputMovement;
+    }
     private void Update()
     {
         foreach (AxleInfo axleInfo in axleInfos)
