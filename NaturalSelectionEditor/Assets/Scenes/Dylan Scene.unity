@@ -1286,34 +1286,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Truck
       objectReference: {fileID: 0}
-    - target: {fileID: 104983314901352000, guid: 0d4c661ff5f036d42b6eead5d570d725, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 11.67
-      objectReference: {fileID: 0}
-    - target: {fileID: 104983314901352000, guid: 0d4c661ff5f036d42b6eead5d570d725, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -38.86
-      objectReference: {fileID: 0}
-    - target: {fileID: 104983314901352000, guid: 0d4c661ff5f036d42b6eead5d570d725, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9890159
-      objectReference: {fileID: 0}
-    - target: {fileID: 104983314901352000, guid: 0d4c661ff5f036d42b6eead5d570d725, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.14780942
-      objectReference: {fileID: 0}
-    - target: {fileID: 104983314901352000, guid: 0d4c661ff5f036d42b6eead5d570d725, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 104983314901352000, guid: 0d4c661ff5f036d42b6eead5d570d725, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 104983314901352000, guid: 0d4c661ff5f036d42b6eead5d570d725, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 17
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d4c661ff5f036d42b6eead5d570d725, type: 3}
 --- !u!4 &104983313863829346 stripped
