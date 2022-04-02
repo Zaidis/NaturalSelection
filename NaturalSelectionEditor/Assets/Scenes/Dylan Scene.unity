@@ -561,6 +561,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 104983314107861507, guid: 0d4c661ff5f036d42b6eead5d570d725, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 769
+      objectReference: {fileID: 0}
     - target: {fileID: 104983314609271518, guid: 0d4c661ff5f036d42b6eead5d570d725, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -610,6 +614,18 @@ PrefabInstance:
       value: Truck
       objectReference: {fileID: 0}
     - target: {fileID: 104983314764493079, guid: 0d4c661ff5f036d42b6eead5d570d725, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 769
+      objectReference: {fileID: 0}
+    - target: {fileID: 104983314817407150, guid: 0d4c661ff5f036d42b6eead5d570d725, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 769
+      objectReference: {fileID: 0}
+    - target: {fileID: 104983314945004573, guid: 0d4c661ff5f036d42b6eead5d570d725, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 769
+      objectReference: {fileID: 0}
+    - target: {fileID: 104983315041222898, guid: 0d4c661ff5f036d42b6eead5d570d725, type: 3}
       propertyPath: m_RenderingLayerMask
       value: 769
       objectReference: {fileID: 0}
