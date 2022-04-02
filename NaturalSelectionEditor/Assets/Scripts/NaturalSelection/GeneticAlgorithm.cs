@@ -310,8 +310,8 @@ public class GeneticAlgorithm : MonoBehaviour
     }
 
     //A normal dice roll
-    private bool DiceRoll(int i, int j){
-        int rand = UnityEngine.Random.Range(i, j);
+    private bool DiceRoll(float i, float j){
+        float rand = UnityEngine.Random.Range(i, j);
 
         if(rand >= j/2){
             return true;
