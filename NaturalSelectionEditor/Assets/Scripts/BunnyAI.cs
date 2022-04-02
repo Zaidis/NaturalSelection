@@ -47,6 +47,8 @@ public class BunnyAI : MonoBehaviour
             adult = true;
         }
 
+        transform.localScale = Vector3.one * Mathf.Clamp(age, 10f, 30f) / 30f;
+
         stats.satiation = Mathf.Clamp(stats.satiation - Time.deltaTime * 0.01f, 0f, 1f);
 
         if (pregnant) {
@@ -87,6 +89,9 @@ public class BunnyAI : MonoBehaviour
         float idleWeight = 1f * stats.lazyWeight;
         float forageWeight = 1f * stats.hungryWeight * (1 - stats.satiation) * carrots.Count;// stats.hungryWeight;
         float mateWeight = 1f * stats.hornyWeight * stats.satiation * bunnies.Count * stats.gender / (1f + timesMated);
+        if (!adult) {
+            mateWeight = 0f;
+        }
         float fleeWeight = 0f * stats.scaredWeight;
         float wanderWeight = 1f * stats.boredWeight;
 

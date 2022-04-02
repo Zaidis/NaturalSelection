@@ -81,7 +81,7 @@ public class GeneticAlgorithm : MonoBehaviour
         stats.boredWeight = RandomPercentage(0f, 1f);
         stats.lazyWeight = RandomPercentage(0f, 1f);
 
-        if (DiceRoll(0, 101)) {
+        if (DiceRoll(0, 1)) {
             stats.gender = 1;
         }
         else {
@@ -98,12 +98,13 @@ public class GeneticAlgorithm : MonoBehaviour
 
         float femaleRate = female.fertality * female.satiation;
         float maleRate = male.fertality * male.satiation;
-        float birthRate = femaleRate * maleRate;
-
+        float birthRate = femaleRate * maleRate + 0.07f;
+        //Debug.LogError(birthRate);
+        //float birthRate = (male.fertality + female.fertality + male.satiation + female.satiation) / 4;
         //most babies = 12 for the average female bunny
         int count = 0;
         for(int i = 0; i < 12; i++){
-            if(DiceRoll(0, 101, birthRate)){
+            if(DiceRoll(0, 1, birthRate)){
                 //you make the baby
                 CreateBunny(male, female, position);
                 count++;
@@ -117,7 +118,8 @@ public class GeneticAlgorithm : MonoBehaviour
         GameObject bunny = Instantiate(bunnyPrefab, position, Quaternion.identity);
         BunnyStats child = bunny.GetComponent<BunnyStats>();
 
-        float m = dad.mutationRate * mom.mutationRate * 100;
+        float m = dad.mutationRate * mom.mutationRate;
+        m = Mathf.Round(m * 100f) * 0.01f;
         MutationMaster(child, dad, mom, m);
         
     }
@@ -132,69 +134,69 @@ public class GeneticAlgorithm : MonoBehaviour
     /// <param name="m">Mutation Rate</param>
     private void MutationMaster(BunnyStats child, BunnyStats dad, BunnyStats mom, float m){
         //fertility
-        if(DiceRoll(0, 101, m)){ //bunny is mutated
+        if(DiceRoll(0, 1, m)){ //bunny is mutated
             child.fertality = MutateFloat(dad.fertality, mom.fertality, m);
         } else {
             child.fertality = mom.fertality;
             
         }
         //earSize
-        if(DiceRoll(0, 101, m)){ //bunny is mutated
+        if(DiceRoll(0, 1, m)){ //bunny is mutated
             child.earSize = MutateFloat(dad.earSize, mom.earSize, m);
         } else {
             child.earSize = mom.earSize;
         }
         //pregnancy duration
-        if(DiceRoll(0, 101, m)){
+        if(DiceRoll(0, 1, m)){
             child.pregnancyDuration = MutateFloat(dad.pregnancyDuration, mom.pregnancyDuration, m);
         } else {
             child.intelligence = mom.intelligence;
             
         }
         //growth rate
-        if (DiceRoll(0, 101, m)) {
+        if (DiceRoll(0, 1, m)) {
             child.growthRate = MutateFloat(dad.growthRate, mom.growthRate, m);
         }
         else {
             child.growthRate = dad.growthRate;
         }
         //food consumption
-        if (DiceRoll(0, 101, m)){
+        if (DiceRoll(0, 1, m)){
             child.foodConsumption = MutateFloat(dad.foodConsumption, mom.foodConsumption, m);
         } else {
             child.foodConsumption = dad.foodConsumption;
         }
 
-        if(DiceRoll(0, 101, m)){
+        if(DiceRoll(0, 1, m)){
             child.jumpHeight = MutateFloat(dad.jumpHeight, mom.jumpHeight, m);
         } else {
             child.jumpHeight = dad.jumpHeight;
         }
         //speed
-        if(DiceRoll(0, 101, m)){
+        if(DiceRoll(0, 1, m)){
             child.speed = MutateFloat(dad.speed, mom.speed, m);
         } else {
-            if(DiceRoll(0, 101)){
+            if(DiceRoll(0, 1)){
                 child.speed = dad.speed;
             } else {
                 child.speed = mom.speed;
             }
         }
         //intelligence
-        if(DiceRoll(0, 101, m)){
+        if(DiceRoll(0, 1, m)){
             child.intelligence = MutateFloat(dad.intelligence, mom.intelligence, m);
         } else {
-            if(DiceRoll(0, 101)){
+            if(DiceRoll(0, 1)){
                 child.intelligence = dad.intelligence;
             } else {
                 child.intelligence = mom.intelligence;
             }
         }
         //mutation rate
-        if(DiceRoll(0, 101, m)){
+        if(DiceRoll(0, 1, m)){
             child.mutationRate = MutateFloat(dad.mutationRate, mom.mutationRate, m);
         } else {
-            if(DiceRoll(0, 101)){
+            if(DiceRoll(0, 1)){
                 child.mutationRate = dad.mutationRate;
             } else {
                 child.mutationRate = mom.mutationRate;
@@ -202,14 +204,14 @@ public class GeneticAlgorithm : MonoBehaviour
         }
 
         //hungryWeight
-        if (DiceRoll(0, 101, m)) {
+        if (DiceRoll(0, 1, m)) {
             child.hungryWeight = MutateFloat(dad.hungryWeight, mom.hungryWeight, m);
         }
         else {
             child.hungryWeight = dad.hungryWeight;
         }
         //hornyWeight
-        if (DiceRoll(0, 101, m)) {
+        if (DiceRoll(0, 1, m)) {
             child.hornyWeight = MutateFloat(dad.hornyWeight, mom.hornyWeight, m);
         }
         else {
@@ -217,11 +219,11 @@ public class GeneticAlgorithm : MonoBehaviour
         }
 
         //scaredWeight
-        if (DiceRoll(0, 101, m)) {
+        if (DiceRoll(0, 1, m)) {
             child.scaredWeight = MutateFloat(dad.scaredWeight, mom.scaredWeight, m);
         }
         else {
-            if (DiceRoll(0, 101)) {
+            if (DiceRoll(0, 1)) {
                 child.scaredWeight = dad.scaredWeight;
             }
             else {
@@ -230,11 +232,11 @@ public class GeneticAlgorithm : MonoBehaviour
         }
 
         //bored Weight
-        if (DiceRoll(0, 101, m)) {
+        if (DiceRoll(0, 1, m)) {
             child.boredWeight = MutateFloat(dad.boredWeight, mom.boredWeight, m);
         }
         else {
-            if (DiceRoll(0, 101)) {
+            if (DiceRoll(0, 1)) {
                 child.boredWeight = dad.boredWeight;
             }
             else {
@@ -243,11 +245,11 @@ public class GeneticAlgorithm : MonoBehaviour
         }
 
         //lazy weight
-        if (DiceRoll(0, 101, m)) {
+        if (DiceRoll(0, 1, m)) {
             child.lazyWeight = MutateFloat(dad.lazyWeight, mom.lazyWeight, m);
         }
         else {
-            if (DiceRoll(0, 101)) {
+            if (DiceRoll(0, 1)) {
                 child.lazyWeight = dad.lazyWeight;
             }
             else {
@@ -255,7 +257,7 @@ public class GeneticAlgorithm : MonoBehaviour
             }
         }
 
-        if (DiceRoll(0, 101)) {
+        if (DiceRoll(0, 1)) {
             child.gender = 1;
         }
         else {
@@ -263,13 +265,13 @@ public class GeneticAlgorithm : MonoBehaviour
         }
     }
     private float MutateFloat(float dadValue, float momValue, float mutationRate){
-        if(DiceRoll(0, 101, mutateOverhaulChance)){
+        if(DiceRoll(0, 1, mutateOverhaulChance)){
             return (float)UnityEngine.Random.Range(0f,0.99f);
         }
         mutationRate /= mutationPercentage; 
         float rand = UnityEngine.Random.Range(dadValue, momValue);
         float newValue = 0;
-        if(DiceRoll(0, 101)){
+        if(DiceRoll(0, 1)){
             newValue = rand + mutationRate;
         } else {
             newValue = rand - mutationRate;
@@ -300,14 +302,15 @@ public class GeneticAlgorithm : MonoBehaviour
         
     }
     //A dice roll that will return true dependent on m
-    private bool DiceRoll(int i, int j, float m){
-        int rand = UnityEngine.Random.Range(i, j);
-
-        if(m >= rand){
-            return true;
+    private bool DiceRoll(float i, float j, float m){
+        
+        float rand = UnityEngine.Random.Range(i, j);
+        //Debug.LogError(rand + ", " + m);
+        if(m <= rand){
+            return false;
         }
 
-        return false;
+        return true;
         
     }
 
