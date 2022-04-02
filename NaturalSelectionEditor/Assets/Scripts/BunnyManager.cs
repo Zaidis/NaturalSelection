@@ -16,6 +16,8 @@ public class BunnyManager : MonoBehaviour
         
     }
 
+    public List<BunnyStats> bunnieStats = new List<BunnyStats>();
+
     public Terrain terrain;
     private float terrainWidth;
     private float terrainLength;
