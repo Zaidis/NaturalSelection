@@ -18,7 +18,10 @@ public class CarMovement : MonoBehaviour
     public float maxMotorTorque;
     public float maxSteeringAngle;
     private float vert, hori;
-
+    [SerializeField] Rigidbody rb;
+    [SerializeField] Vector3 downwardForce;
+    [SerializeField] ForceMode forceMode;
+    [SerializeField] bool isTrailer;
 
     private void Update()
     {
@@ -47,24 +50,25 @@ public class CarMovement : MonoBehaviour
 
     public void FixedUpdate()
     {
-        float motor = maxMotorTorque * vert;
-        float steering = maxSteeringAngle * hori;
-
-        foreach (AxleInfo axleInfo in axleInfos)
-        {
-            if (axleInfo.steering)
+        rb.AddForce(downwardForce, forceMode);
+       
+            float motor = maxMotorTorque * vert;
+            float steering = maxSteeringAngle * hori;
+           
+            foreach (AxleInfo axleInfo in axleInfos)
             {
-                axleInfo.leftWheel.steerAngle = steering;
-                axleInfo.rightWheel.steerAngle = steering;
+                if (axleInfo.steering && !isTrailer)
+                {
+                    axleInfo.leftWheel.steerAngle = steering;
+                    axleInfo.rightWheel.steerAngle = steering;
+                }
+                if (axleInfo.motor)
+                {
+                    axleInfo.leftWheel.motorTorque = motor;
+                    axleInfo.rightWheel.motorTorque = motor;
+                }
             }
-            if (axleInfo.motor)
-            {
-                axleInfo.leftWheel.motorTorque = motor;
-                axleInfo.rightWheel.motorTorque = motor;
-            }
-            //ApplyLocalPositionToVisuals(axleInfo.leftWheel, axleInfo.leftTire);
-            //ApplyLocalPositionToVisuals(axleInfo.rightWheel, axleInfo.rightTire);
-        }
+        
     }
     public void InputMovement(InputAction.CallbackContext callback)
     {

@@ -5,9 +5,14 @@ using UnityEngine;
 public class BunnyMotor : MonoBehaviour
 {
     [SerializeField] LayerMask ground;
-    public Vector2 destination;
+    public Vector3 destination;
 
     public float speed = 1f;
+
+    private void Start()
+    {
+        destination = transform.position;
+    }
 
     void FixedUpdate(){
         Move();
@@ -15,8 +20,9 @@ public class BunnyMotor : MonoBehaviour
 
     void Move() {
         Vector2 currentPos = new Vector2(transform.position.x, transform.position.z);
-        if ((currentPos - destination).SqrMagnitude() > .25f) {
-            Vector2 direction2 = destination - currentPos;
+        Vector2 dest = new Vector2(destination.x, destination.z);
+        if ((currentPos - dest).SqrMagnitude() > .25f) {
+            Vector2 direction2 = dest - currentPos;
             direction2 = direction2.normalized * Time.deltaTime * speed;
             
             transform.position = new Vector3(currentPos.x + direction2.x, GetTerrainHeight(currentPos + direction2), currentPos.y + direction2.y);

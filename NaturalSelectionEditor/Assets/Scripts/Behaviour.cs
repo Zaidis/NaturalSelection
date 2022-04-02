@@ -21,7 +21,7 @@ public class Behaviour : MonoBehaviour
     }
 
     public virtual void SuddenDecision() {
-        myAI.DecideBehaviour();
+        myAI.DecideBehaviour(true);
     }
 
 }

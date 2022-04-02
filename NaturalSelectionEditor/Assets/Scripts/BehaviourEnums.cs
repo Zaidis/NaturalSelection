@@ -7,5 +7,6 @@ public enum BehaviourType
     Idle,
     Forage,
     Mate,
-    Flee
+    Flee,
+    Wander
 }
