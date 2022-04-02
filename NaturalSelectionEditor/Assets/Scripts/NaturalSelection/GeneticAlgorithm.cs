@@ -26,6 +26,25 @@ public class GeneticAlgorithm : MonoBehaviour
         //CreateRandomBunny();
     }
 
+    public void CopyStats(BunnyStats myStats, BunnyStats copy) {
+        myStats.gender = copy.gender;
+        myStats.fertality = copy.fertality;
+        myStats.speed = copy.speed;
+        myStats.intelligence = copy.intelligence;
+        myStats.earSize = copy.earSize;
+        myStats.growthRate = copy.growthRate;
+        myStats.foodConsumption = copy.foodConsumption;
+        myStats.pregnancyDuration = copy.pregnancyDuration;
+        myStats.mutationRate = copy.mutationRate;
+        myStats.jumpHeight = copy.jumpHeight;
+        myStats.satiation = copy.satiation;
+        myStats.scaredWeight = copy.scaredWeight;
+        myStats.hornyWeight = copy.hornyWeight;
+        myStats.hungryWeight = copy.hungryWeight;
+        myStats.boredWeight = copy.boredWeight;
+        myStats.lazyWeight = copy.lazyWeight;
+    }
+
     public GameObject CreateRandomBunny(Vector3 position) {
         //make baby
         GameObject bunny = Instantiate(bunnyPrefab, position, Quaternion.identity);
@@ -291,8 +310,8 @@ public class GeneticAlgorithm : MonoBehaviour
     }
 
     //A normal dice roll
-    private bool DiceRoll(int i, int j){
-        int rand = UnityEngine.Random.Range(i, j);
+    private bool DiceRoll(float i, float j){
+        float rand = UnityEngine.Random.Range(i, j);
 
         if(rand >= j/2){
             return true;
