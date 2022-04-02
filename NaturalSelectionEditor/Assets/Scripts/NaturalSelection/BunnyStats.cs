@@ -17,6 +17,8 @@ public class BunnyStats : MonoBehaviour
 
     public float jumpHeight; //dad
 
+    public float satiation = 0; 
+
     //behavior weights
     public float scaredWeight { get; set; }
     public float hornyWeight { get; set; }

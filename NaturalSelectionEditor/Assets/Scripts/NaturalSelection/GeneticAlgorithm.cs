@@ -85,8 +85,8 @@ public class GeneticAlgorithm : MonoBehaviour
     /// <param name="female">Female Parent</param>
     public void GiveBirth(BunnyStats male, BunnyStats female, Vector3 position){
 
-        float femaleRate = female.fertality * female.foodConsumption;
-        float maleRate = male.fertality * male.foodConsumption;
+        float femaleRate = female.fertality * female.satiation;
+        float maleRate = male.fertality * male.satiation;
         float birthRate = femaleRate * maleRate;
         
         //most babies = 12 for the average female bunny
