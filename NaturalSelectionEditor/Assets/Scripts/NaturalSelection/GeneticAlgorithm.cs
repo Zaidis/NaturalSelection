@@ -10,6 +10,11 @@ public class GeneticAlgorithm : MonoBehaviour
     public float mutateOverhaulChance;
     
 
+    /// <summary>
+    /// Called when a male and female bunny give birth. 
+    /// </summary>
+    /// <param name="male">Male Parent</param>
+    /// <param name="female">Female Parent</param>
     public void GiveBirth(BunnyStats male, BunnyStats female){
 
         float femaleRate = female.fertality * female.foodConsumption;
@@ -18,20 +23,11 @@ public class GeneticAlgorithm : MonoBehaviour
         
         //most babies = 12 for the average female bunny
         for(int i = 0; i < 12; i++){
-            if(BirthChance(birthRate)){
+            if(DiceRoll(0, 101, birthRate)){
                 //you make the baby
                 CreateBunny(male, female);
             }
         }   
-    }
-    private bool BirthChance(float percentage){
-        int rand = Random.Range(0, 101);
-
-        if(rand <= percentage){
-            return true;
-        }
-
-        return false;
     }
     public void CreateBunny(BunnyStats dad, BunnyStats mom){
         //make baby
@@ -42,6 +38,14 @@ public class GeneticAlgorithm : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// The main function for mutating a new child. It decides whether or not the child will take
+    /// it's parents genes, or perhaps a percentage of their genes. 
+    /// </summary>
+    /// <param name="child">The new bunny</param>
+    /// <param name="dad">Male Parent</param>
+    /// <param name="mom">Female Parent</param>
+    /// <param name="m">Mutation Rate</param>
     private void MutationMaster(BunnyStats child, BunnyStats dad, BunnyStats mom, float m){
         //fertility
         if(DiceRoll(0, 101, m)){ //bunny is mutated
@@ -118,6 +122,7 @@ public class GeneticAlgorithm : MonoBehaviour
             return rand - mutationRate;
         }
     }
+    //A normal dice roll
     private bool DiceRoll(int i, int j){
         int rand = Random.Range(i, j);
 
@@ -128,6 +133,7 @@ public class GeneticAlgorithm : MonoBehaviour
         return false;
         
     }
+    //A dice roll that will return true dependent on m
     private bool DiceRoll(int i, int j, float m){
         int rand = Random.Range(i, j);
 
