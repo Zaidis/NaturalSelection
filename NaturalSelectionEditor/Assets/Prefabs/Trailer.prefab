@@ -491,7 +491,7 @@ MonoBehaviour:
     rightTire: {fileID: 5477050221732201006}
     motor: 0
     steering: 1
-  maxMotorTorque: 1500
+  maxMotorTorque: 50
   maxSteeringAngle: 30
   rb: {fileID: 5477050221288827533}
   downwardForce: {x: 0, y: 0, z: 0}
@@ -509,7 +509,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 2.5}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0.3139999, z: -2.3299866}
+  m_ConnectedAnchor: {x: 198.5, y: 2.824, z: 195.57}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 0, z: 1}
   m_XMotion: 0

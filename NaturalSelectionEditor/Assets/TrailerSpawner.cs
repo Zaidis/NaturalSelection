@@ -16,7 +16,7 @@ public class TrailerSpawner : MonoBehaviour
     
     public void SpawnTrailer()
     {
-        GameObject g = Instantiate(trailerPrefab, spawnPoint.position, Quaternion.identity);
+        GameObject g = Instantiate(trailerPrefab, spawnPoint.position, caboose.rotation);
         ConfigurableJoint cj = g.GetComponent<ConfigurableJoint>();
         cj.connectedBody = caboose;
         caboose = g.GetComponent<Rigidbody>();
