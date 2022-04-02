@@ -17,10 +17,12 @@ public class BunnyStats : MonoBehaviour
 
     public float jumpHeight; //dad
 
+    public float satiation = 0;
+
     //behavior weights
-    public float scaredWeight { get; set; }
-    public float hornyWeight { get; set; }
-    public float hungryWeight { get; set; }
-    public float boredWeight { get; set; }
-    public float lazyWeight { get; set; }
+    public float scaredWeight;// { get; set; }
+    public float hornyWeight;// { get; set; }
+    public float hungryWeight;// { get; set; }
+    public float boredWeight;// { get; set; }
+    public float lazyWeight;// { get; set; }
 }

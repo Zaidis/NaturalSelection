@@ -41,6 +41,13 @@ public class GeneticAlgorithm : MonoBehaviour
         stats.mutationRate = RandomPercentage();
 
         BunnyAI bunnyAI = bunny.GetComponent<BunnyAI>();
+
+        if(DiceRoll(0, 101)) {
+            stats.gender = 1;
+        } else {
+            stats.gender = 0;
+        }
+
         bunnyAI.age = 30f;
         bunnyAI.adult = true;
 
@@ -62,6 +69,13 @@ public class GeneticAlgorithm : MonoBehaviour
         stats.foodConsumption = RandomPercentage();
         stats.pregnancyDuration = RandomPercentage();
         stats.mutationRate = RandomPercentage();
+
+        if (DiceRoll(0, 101)) {
+            stats.gender = 1;
+        }
+        else {
+            stats.gender = 0;
+        }
     }
 
     /// <summary>
@@ -71,8 +85,8 @@ public class GeneticAlgorithm : MonoBehaviour
     /// <param name="female">Female Parent</param>
     public void GiveBirth(BunnyStats male, BunnyStats female, Vector3 position){
 
-        float femaleRate = female.fertality * female.foodConsumption;
-        float maleRate = male.fertality * male.foodConsumption;
+        float femaleRate = female.fertality * female.satiation;
+        float maleRate = male.fertality * male.satiation;
         float birthRate = femaleRate * maleRate;
         
         //most babies = 12 for the average female bunny
@@ -171,6 +185,13 @@ public class GeneticAlgorithm : MonoBehaviour
             } else {
                 child.mutationRate = mom.mutationRate;
             }
+        }
+
+        if (DiceRoll(0, 101)) {
+            child.gender = 1;
+        }
+        else {
+            child.gender = 0;
         }
     }
     private float MutateFloat(float dadValue, float momValue, float mutationRate){
