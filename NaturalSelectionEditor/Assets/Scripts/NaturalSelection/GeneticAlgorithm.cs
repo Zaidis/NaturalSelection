@@ -1,22 +1,50 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public class GeneticAlgorithm : MonoBehaviour
 {
     //Smaller value = bigger mutations
     
     public float mutationPercentage;
     public float mutateOverhaulChance;
-    
+    public GameObject adultBunny;
+    public GameObject childBunny;
+
+    private void Start() {
+        CreateRandomBunny();
+    }
     public void CreateRandomBunny() {
         //make baby
-        BunnyStats child = new BunnyStats();
+        GameObject bunny = Instantiate(adultBunny);
 
-        
-
+        BunnyStats stats = bunny.GetComponent<BunnyStats>();
+        stats.fertality = RandomPercentage();
+        stats.speed = RandomPercentage();
+        stats.intelligence = RandomPercentage();
+        stats.earSize = RandomPercentage();
+        stats.growthRate = RandomPercentage();
+        stats.foodConsumption = RandomPercentage();
+        stats.pregnancyDuration = RandomPercentage();
+        stats.mutationRate = RandomPercentage();
     }
 
+    /// <summary>
+    /// Allows for a selected bunny to get new random stats. 
+    /// </summary>
+    /// <param name="bunny"></param>
+    public void RandomizeBunny(GameObject bunny) {
+        
+        BunnyStats stats = bunny.GetComponent<BunnyStats>();
+        stats.fertality = RandomPercentage();
+        stats.speed = RandomPercentage();
+        stats.intelligence = RandomPercentage();
+        stats.earSize = RandomPercentage();
+        stats.growthRate = RandomPercentage();
+        stats.foodConsumption = RandomPercentage();
+        stats.pregnancyDuration = RandomPercentage();
+        stats.mutationRate = RandomPercentage();
+    }
 
     /// <summary>
     /// Called when a male and female bunny give birth. 
@@ -39,7 +67,8 @@ public class GeneticAlgorithm : MonoBehaviour
     }
     public void CreateBunny(BunnyStats dad, BunnyStats mom){
         //make baby
-        BunnyStats child = new BunnyStats();
+        GameObject bunny = Instantiate(childBunny);
+        BunnyStats child = bunny.GetComponent<BunnyStats>();
 
         float m = dad.mutationRate * mom.mutationRate * 100;
         MutationMaster(child, dad, mom, m);
@@ -75,8 +104,15 @@ public class GeneticAlgorithm : MonoBehaviour
             child.intelligence = mom.intelligence;
             
         }
+        //growth rate
+        if (DiceRoll(0, 101, m)) {
+            child.growthRate = MutateFloat(dad.growthRate, mom.growthRate, m);
+        }
+        else {
+            child.growthRate = dad.growthRate;
+        }
         //food consumption
-        if(DiceRoll(0, 101, m)){
+        if (DiceRoll(0, 101, m)){
             child.foodConsumption = MutateFloat(dad.foodConsumption, mom.foodConsumption, m);
         } else {
             child.foodConsumption = dad.foodConsumption;
@@ -120,24 +156,33 @@ public class GeneticAlgorithm : MonoBehaviour
     }
     private float MutateFloat(float dadValue, float momValue, float mutationRate){
         if(DiceRoll(0, 101, mutateOverhaulChance)){
-            return (float)Random.Range(0f,0.99f);
+            return (float)UnityEngine.Random.Range(0f,0.99f);
         }
         mutationRate /= mutationPercentage; 
-        float rand = Random.Range(dadValue, momValue);
+        float rand = UnityEngine.Random.Range(dadValue, momValue);
+        float newValue = 0;
         if(DiceRoll(0, 101)){
-            return rand + mutationRate;
+            newValue = rand + mutationRate;
         } else {
-            return rand - mutationRate;
+            newValue = rand - mutationRate;
         }
+
+        if (newValue > 1) newValue = 1;
+        else if (newValue < 0) newValue = 0;
+
+        return newValue;
     }
 
     private float RandomPercentage() {
-        return Random.Range(0f, 1f);
+        float r = UnityEngine.Random.Range(0f, 1f);
+        r = Mathf.Round(r * 100f) * 0.01f;
+       // Debug.Log(r);
+        return r;
     }
 
     //A normal dice roll
     private bool DiceRoll(int i, int j){
-        int rand = Random.Range(i, j);
+        int rand = UnityEngine.Random.Range(i, j);
 
         if(rand >= j/2){
             return true;
@@ -148,7 +193,7 @@ public class GeneticAlgorithm : MonoBehaviour
     }
     //A dice roll that will return true dependent on m
     private bool DiceRoll(int i, int j, float m){
-        int rand = Random.Range(i, j);
+        int rand = UnityEngine.Random.Range(i, j);
 
         if(m >= rand){
             return true;
