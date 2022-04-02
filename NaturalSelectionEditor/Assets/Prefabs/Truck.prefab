@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 885746243}
   - component: {fileID: 885746242}
   - component: {fileID: 885746241}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: cm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 1001366474}
   - component: {fileID: 1001366476}
   - component: {fileID: 1001366477}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: CM vcam1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,7 +243,7 @@ GameObject:
   - component: {fileID: 2123465779}
   - component: {fileID: 2123465783}
   - component: {fileID: 2123465784}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -486,7 +486,7 @@ GameObject:
   - component: {fileID: 104983314107861505}
   - component: {fileID: 104983314107861506}
   - component: {fileID: 104983314107861507}
-  m_Layer: 14
+  m_Layer: 15
   m_Name: Front Left Tire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -565,7 +565,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 104983314276377826}
-  m_Layer: 14
+  m_Layer: 15
   m_Name: BLT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -596,7 +596,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 104983314491779530}
-  m_Layer: 14
+  m_Layer: 15
   m_Name: BRT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -632,7 +632,7 @@ GameObject:
   - component: {fileID: 104983314609271459}
   - component: {fileID: 8050586667939915147}
   - component: {fileID: 104983313863829348}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Truck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -658,6 +658,7 @@ Transform:
   - {fileID: 5092577284893900012}
   - {fileID: 2123465782}
   - {fileID: 1001366475}
+  - {fileID: 635980965782338610}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -847,7 +848,7 @@ GameObject:
   - component: {fileID: 2003514883418012680}
   - component: {fileID: 2169326486213129249}
   - component: {fileID: 6339630789780636845}
-  m_Layer: 14
+  m_Layer: 15
   m_Name: Back Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1060,7 +1061,7 @@ GameObject:
   - component: {fileID: 104983314764493078}
   - component: {fileID: 104983314764493079}
   - component: {fileID: 104983314764493076}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Chasis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1154,7 +1155,7 @@ GameObject:
   - component: {fileID: 104983314817407148}
   - component: {fileID: 104983314817407153}
   - component: {fileID: 104983314817407150}
-  m_Layer: 14
+  m_Layer: 15
   m_Name: Back Right Tire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1235,7 +1236,7 @@ GameObject:
   - component: {fileID: 104983314945004571}
   - component: {fileID: 104983314945004572}
   - component: {fileID: 104983314945004573}
-  m_Layer: 14
+  m_Layer: 15
   m_Name: Back Left Tire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1316,7 +1317,7 @@ GameObject:
   - component: {fileID: 104983315041222896}
   - component: {fileID: 104983315041222901}
   - component: {fileID: 104983315041222898}
-  m_Layer: 14
+  m_Layer: 15
   m_Name: Front Right Tire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1395,7 +1396,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 104983315055435072}
-  m_Layer: 14
+  m_Layer: 15
   m_Name: FRT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1430,7 +1431,7 @@ GameObject:
   - component: {fileID: 732540995561318529}
   - component: {fileID: 702575757482339404}
   - component: {fileID: 7110836034070550310}
-  m_Layer: 14
+  m_Layer: 15
   m_Name: Back Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1641,7 +1642,7 @@ GameObject:
   m_Component:
   - component: {fileID: 104983315299501042}
   - component: {fileID: 104983315299501043}
-  m_Layer: 14
+  m_Layer: 15
   m_Name: Front Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1703,7 +1704,7 @@ GameObject:
   m_Component:
   - component: {fileID: 104983315560408714}
   - component: {fileID: 104983315560408715}
-  m_Layer: 14
+  m_Layer: 15
   m_Name: Front Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1764,7 +1765,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 104983315563497975}
-  m_Layer: 14
+  m_Layer: 15
   m_Name: FLT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1795,7 +1796,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5092577284893900012}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Spawn Point
   m_TagString: Untagged
   m_Icon: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
@@ -1816,3 +1817,65 @@ Transform:
   m_Father: {fileID: 104983314609271518}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &104983314100912447
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 104983314609271518}
+    m_Modifications:
+    - target: {fileID: 695679239114571020, guid: a46f45ca6039a1448bad5a2c7e4f8c70, type: 3}
+      propertyPath: m_Name
+      value: Uncle Jon
+      objectReference: {fileID: 0}
+    - target: {fileID: 695679239114571021, guid: a46f45ca6039a1448bad5a2c7e4f8c70, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 695679239114571021, guid: a46f45ca6039a1448bad5a2c7e4f8c70, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 695679239114571021, guid: a46f45ca6039a1448bad5a2c7e4f8c70, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 695679239114571021, guid: a46f45ca6039a1448bad5a2c7e4f8c70, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 695679239114571021, guid: a46f45ca6039a1448bad5a2c7e4f8c70, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 695679239114571021, guid: a46f45ca6039a1448bad5a2c7e4f8c70, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 695679239114571021, guid: a46f45ca6039a1448bad5a2c7e4f8c70, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 695679239114571021, guid: a46f45ca6039a1448bad5a2c7e4f8c70, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 695679239114571021, guid: a46f45ca6039a1448bad5a2c7e4f8c70, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 695679239114571021, guid: a46f45ca6039a1448bad5a2c7e4f8c70, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 695679239114571021, guid: a46f45ca6039a1448bad5a2c7e4f8c70, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a46f45ca6039a1448bad5a2c7e4f8c70, type: 3}
+--- !u!4 &635980965782338610 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 695679239114571021, guid: a46f45ca6039a1448bad5a2c7e4f8c70, type: 3}
+  m_PrefabInstance: {fileID: 104983314100912447}
+  m_PrefabAsset: {fileID: 0}
