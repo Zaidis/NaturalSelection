@@ -22,6 +22,7 @@ public class BunnyAI : MonoBehaviour
     public int timesMated = 0;
     public bool pregnant = false;
     float pregnancyTime = 0f;
+
     public BunnyStats mateStats;
 
     public bool adult = false;
@@ -33,6 +34,7 @@ public class BunnyAI : MonoBehaviour
         if (stats.fertality + stats.earSize + stats.speed == 0) {
             GeneticAlgorithm.instance.RandomizeBunny(gameObject);
         }
+        BunnyManager.instance.bunnieStats.Add(stats);
     }
 
     void Update(){
@@ -158,5 +160,11 @@ public class BunnyAI : MonoBehaviour
                 bunnies.Add(bun[i]);
             }
         }
+    }
+
+    public void Die() {
+        BunnyManager.instance.bunnieStats.Remove(stats);
+        //STUFF
+        Destroy(gameObject);
     }
 }

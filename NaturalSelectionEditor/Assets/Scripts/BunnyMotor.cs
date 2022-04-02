@@ -6,9 +6,9 @@ public class BunnyMotor : MonoBehaviour
 {
     [SerializeField] LayerMask ground;
     public Vector3 destination;
-    
 
-    public float speed = 1f;
+
+    [SerializeField] BunnyStats myStats;
 
     private void Start()
     {
@@ -24,7 +24,7 @@ public class BunnyMotor : MonoBehaviour
         Vector2 dest = new Vector2(destination.x, destination.z);
         if ((currentPos - dest).SqrMagnitude() > .25f) {
             Vector2 direction2 = dest - currentPos;
-            direction2 = direction2.normalized * Time.deltaTime * speed;
+            direction2 = direction2.normalized * Time.deltaTime * 2f * myStats.speed;
             
             transform.position = new Vector3(currentPos.x + direction2.x, GetTerrainHeight(currentPos + direction2), currentPos.y + direction2.y);
             

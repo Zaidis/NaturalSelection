@@ -531,7 +531,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 257
+  m_RenderingLayerMask: 769
   m_RendererPriority: 0
   m_Materials:
   - {fileID: -8469494145858465668, guid: 0c4cacad6fd393245b3ae47219e5a137, type: 3}
@@ -1105,7 +1105,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 257
+  m_RenderingLayerMask: 769
   m_RendererPriority: 0
   m_Materials:
   - {fileID: -8469494145858465668, guid: e49da113140f488448e969419cb65310, type: 3}
@@ -1199,7 +1199,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 257
+  m_RenderingLayerMask: 769
   m_RendererPriority: 0
   m_Materials:
   - {fileID: -8469494145858465668, guid: 0c4cacad6fd393245b3ae47219e5a137, type: 3}
@@ -1280,7 +1280,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 257
+  m_RenderingLayerMask: 769
   m_RendererPriority: 0
   m_Materials:
   - {fileID: -8469494145858465668, guid: 0c4cacad6fd393245b3ae47219e5a137, type: 3}
@@ -1361,7 +1361,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 257
+  m_RenderingLayerMask: 769
   m_RendererPriority: 0
   m_Materials:
   - {fileID: -8469494145858465668, guid: 0c4cacad6fd393245b3ae47219e5a137, type: 3}

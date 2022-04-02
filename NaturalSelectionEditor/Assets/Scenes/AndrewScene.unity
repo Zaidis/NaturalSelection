@@ -201,8 +201,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6575d033ec7fdee4a9f743d2bf6da1ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bunnieStats: []
   terrain: {fileID: 1083465534}
   initialPopulation: 200
+  males: 0
+  females: 0
+  fertality: 0
+  speed: 0
+  earSize: 0
 --- !u!114 &370972843
 MonoBehaviour:
   m_ObjectHideFlags: 0
