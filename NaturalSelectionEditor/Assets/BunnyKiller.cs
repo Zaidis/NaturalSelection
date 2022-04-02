@@ -20,7 +20,11 @@ public class BunnyKiller : MonoBehaviour
             t.GetComponent<DecalProjector>().decalLayerMask = DecalLayerEnum.DecalLayer2;
             Instantiate(gibblet, other.transform.position + new Vector3(0,0.5f,0), other.transform.rotation);
             t.transform.eulerAngles = new Vector3(90, this.transform.rotation.eulerAngles.y, 0);
-            Destroy(other.gameObject);
+            BunnyAI bAI = other.GetComponent<BunnyAI>();
+            if (bAI != null) {
+                bAI.Die();
+            }
+            
         }
 
     }

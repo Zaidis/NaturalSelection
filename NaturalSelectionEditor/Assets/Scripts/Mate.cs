@@ -44,7 +44,10 @@ public class Mate : Behaviour
                 mateAI.timesMated++;
 
                 mateAI.pregnant = true;
-                mateAI.mateStats = myAI.GetComponent<BunnyStats>();
+
+                GeneticAlgorithm.instance.CopyStats(myAI.stats, mateAI.mateStats);
+
+                //mateAI.mateStats = myAI.GetComponent<BunnyStats>();
 
                 mateAI.behaviourLocked = false;
                 myAI.behaviourLocked = false;
