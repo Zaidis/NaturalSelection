@@ -18,7 +18,8 @@ public class CarMovement : MonoBehaviour
     public float maxMotorTorque;
     public float maxSteeringAngle;
     private float vert, hori;
-
+    [SerializeField] Rigidbody rb;
+    [SerializeField] Vector3 downwardForce;
 
     private void Update()
     {
@@ -49,7 +50,7 @@ public class CarMovement : MonoBehaviour
     {
         float motor = maxMotorTorque * vert;
         float steering = maxSteeringAngle * hori;
-
+        rb.AddForce(downwardForce, ForceMode.Force);
         foreach (AxleInfo axleInfo in axleInfos)
         {
             if (axleInfo.steering)
