@@ -32,7 +32,7 @@ public class Forage : Behaviour
             myAI.behaviourLocked = true;
             //EATING
             eatTime += Time.deltaTime;
-            if (eatTime >= 1f)
+            if (eatTime >= 2f)
             {
                 //DONE EATING
                 myAI.behaviourLocked = false;

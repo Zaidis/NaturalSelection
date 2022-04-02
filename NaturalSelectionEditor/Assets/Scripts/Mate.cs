@@ -35,11 +35,11 @@ public class Mate : Behaviour
 
             //MATING
             mateTime += Time.deltaTime;
-            if (mateTime >= 1f)
+            if (mateTime >= 4f)
             {
                 //DONE MATING
                 //SPAWN BUNNIES
-                Debug.Log("Pregnancy!");
+                //Debug.Log("Pregnancy!");
                 myAI.timesMated++;
                 mateAI.timesMated++;
 

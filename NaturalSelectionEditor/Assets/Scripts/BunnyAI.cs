@@ -52,7 +52,7 @@ public class BunnyAI : MonoBehaviour
         if (pregnant) {
             pregnancyTime += Time.deltaTime;
             if (pregnancyTime >= 30f * stats.pregnancyDuration) { //*pregnancyduration
-                Debug.Log("Give Birth");
+                //Debug.Log("Give Birth");
                 GeneticAlgorithm.instance.GiveBirth(mateStats, stats, transform.position);
                 pregnant = false;
                 pregnancyTime = 0f;

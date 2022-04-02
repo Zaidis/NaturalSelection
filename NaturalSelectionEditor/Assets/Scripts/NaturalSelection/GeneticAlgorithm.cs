@@ -99,14 +99,17 @@ public class GeneticAlgorithm : MonoBehaviour
         float femaleRate = female.fertality * female.satiation;
         float maleRate = male.fertality * male.satiation;
         float birthRate = femaleRate * maleRate;
-        
+
         //most babies = 12 for the average female bunny
+        int count = 0;
         for(int i = 0; i < 12; i++){
             if(DiceRoll(0, 101, birthRate)){
                 //you make the baby
                 CreateBunny(male, female, position);
+                count++;
             }
-        }   
+        }
+        Debug.Log("Birthing " + count + " bunnies");
     }
     public void CreateBunny(BunnyStats dad, BunnyStats mom, Vector3 position)
     {
