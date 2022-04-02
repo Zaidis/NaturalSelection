@@ -40,6 +40,11 @@ public class GeneticAlgorithm : MonoBehaviour
         stats.pregnancyDuration = RandomPercentage();
         stats.mutationRate = RandomPercentage();
 
+        stats.scaredWeight = RandomPercentage();
+        stats.hornyWeight = RandomPercentage();
+        stats.hungryWeight = RandomPercentage();
+        stats.boredWeight = RandomPercentage();
+        stats.lazyWeight = RandomPercentage();
         BunnyAI bunnyAI = bunny.GetComponent<BunnyAI>();
 
         if(DiceRoll(0, 101)) {
@@ -69,6 +74,12 @@ public class GeneticAlgorithm : MonoBehaviour
         stats.foodConsumption = RandomPercentage();
         stats.pregnancyDuration = RandomPercentage();
         stats.mutationRate = RandomPercentage();
+
+        stats.scaredWeight = RandomPercentage();
+        stats.hornyWeight = RandomPercentage();
+        stats.hungryWeight = RandomPercentage();
+        stats.boredWeight = RandomPercentage();
+        stats.lazyWeight = RandomPercentage();
 
         if (DiceRoll(0, 101)) {
             stats.gender = 1;
@@ -184,6 +195,60 @@ public class GeneticAlgorithm : MonoBehaviour
                 child.mutationRate = dad.mutationRate;
             } else {
                 child.mutationRate = mom.mutationRate;
+            }
+        }
+
+        //hungryWeight
+        if (DiceRoll(0, 101, m)) {
+            child.hungryWeight = MutateFloat(dad.hungryWeight, mom.hungryWeight, m);
+        }
+        else {
+            child.hungryWeight = dad.hungryWeight;
+        }
+        //hornyWeight
+        if (DiceRoll(0, 101, m)) {
+            child.hornyWeight = MutateFloat(dad.hornyWeight, mom.hornyWeight, m);
+        }
+        else {
+            child.hornyWeight = mom.hornyWeight;
+        }
+
+        //scaredWeight
+        if (DiceRoll(0, 101, m)) {
+            child.scaredWeight = MutateFloat(dad.scaredWeight, mom.scaredWeight, m);
+        }
+        else {
+            if (DiceRoll(0, 101)) {
+                child.scaredWeight = dad.scaredWeight;
+            }
+            else {
+                child.scaredWeight = mom.scaredWeight;
+            }
+        }
+
+        //bored Weight
+        if (DiceRoll(0, 101, m)) {
+            child.boredWeight = MutateFloat(dad.boredWeight, mom.boredWeight, m);
+        }
+        else {
+            if (DiceRoll(0, 101)) {
+                child.boredWeight = dad.boredWeight;
+            }
+            else {
+                child.boredWeight = mom.boredWeight;
+            }
+        }
+
+        //lazy weight
+        if (DiceRoll(0, 101, m)) {
+            child.lazyWeight = MutateFloat(dad.lazyWeight, mom.lazyWeight, m);
+        }
+        else {
+            if (DiceRoll(0, 101)) {
+                child.lazyWeight = dad.lazyWeight;
+            }
+            else {
+                child.lazyWeight = mom.lazyWeight;
             }
         }
 
