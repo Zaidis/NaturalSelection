@@ -631,6 +631,7 @@ GameObject:
   - component: {fileID: 104983314609271456}
   - component: {fileID: 104983314609271459}
   - component: {fileID: 8050586667939915147}
+  - component: {fileID: 104983313863829348}
   m_Layer: 0
   m_Name: Truck
   m_TagString: Untagged
@@ -816,6 +817,22 @@ MonoBehaviour:
   trailerPrefab: {fileID: 5477050221288827534, guid: 4d68c142bbf4c7e4485aa0a1c6d66e2b, type: 3}
   spawnPoint: {fileID: 5092577284893900012}
   spawnTrailer: 0
+--- !u!114 &104983313863829348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104983314609271519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23473c20df8881c46aad007dde44702c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  decals:
+  - {fileID: 1374988096266252336, guid: fea30dbe8d8fb004d9e80bf017d92ddc, type: 3}
+  - {fileID: 4729212825842678592, guid: 74ad79299b244f849a9f7f7dab6eeb0d, type: 3}
+  - {fileID: 4209150726603536898, guid: f7c4760b37c9402418ff6c906653a740, type: 3}
 --- !u!1 &104983314622112237
 GameObject:
   m_ObjectHideFlags: 0
