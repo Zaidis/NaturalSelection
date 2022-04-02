@@ -24,16 +24,22 @@ public class Mate : Behaviour
             return;
         }
 
+        
+
         myMotor.destination = mate.transform.position;
         float dist = (mate.transform.position - transform.position).sqrMagnitude;
-        if (dist <= .5f) {
-            
+        if (dist <= .5f)
+        {
+
+            myAI.anim.PlayAnimation(BunnyAnimator.Animation.Mate);
+
             //MATING
             mateTime += Time.deltaTime;
-            if (mateTime >= 1f) {
+            if (mateTime >= 4f)
+            {
                 //DONE MATING
                 //SPAWN BUNNIES
-                Debug.Log("Pregnancy!");
+                //Debug.Log("Pregnancy!");
                 myAI.timesMated++;
                 mateAI.timesMated++;
 
@@ -43,8 +49,11 @@ public class Mate : Behaviour
                 mateAI.behaviourLocked = false;
                 myAI.behaviourLocked = false;
                 SuddenDecision();
-                
+
             }
+        }
+        else {
+            myAI.anim.PlayAnimation(BunnyAnimator.Animation.Move);
         }
     }
 

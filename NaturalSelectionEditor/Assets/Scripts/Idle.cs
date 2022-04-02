@@ -7,6 +7,7 @@ public class Idle : Behaviour
 
     public override void StartBehaviour() {
         myMotor.destination = transform.position;
+        myAI.anim.PlayAnimation(BunnyAnimator.Animation.Idle);
     }
 
     public override void UpdateBehaviour(){

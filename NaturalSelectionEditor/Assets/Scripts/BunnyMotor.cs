@@ -6,6 +6,7 @@ public class BunnyMotor : MonoBehaviour
 {
     [SerializeField] LayerMask ground;
     public Vector3 destination;
+    
 
     public float speed = 1f;
 
@@ -31,10 +32,14 @@ public class BunnyMotor : MonoBehaviour
     }
 
     float GetTerrainHeight(Vector2 pos) {
+
+        return Terrain.activeTerrain.SampleHeight(new Vector3(pos.x, 0, pos.y));
+        /*
         RaycastHit hit;
         Physics.Raycast(new Vector3(pos.x, 500, pos.y), Vector3.down, out hit, 1000f, ground, QueryTriggerInteraction.Ignore);
         //Debug.Log(hit.point.y);
         return hit.point.y;
+        */
     }
 
 

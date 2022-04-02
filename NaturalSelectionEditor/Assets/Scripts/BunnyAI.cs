@@ -5,12 +5,13 @@ using System.Linq;
 
 public class BunnyAI : MonoBehaviour
 {
-    [SerializeField] BunnyStats stats;
+    public BunnyStats stats;
+    public BunnyAnimator anim;
 
     public Behaviour[] behaviours;
     [SerializeField] Behaviour currentBehaviour;
 
-    float behaviourCheckRate = 2f; //reduce with intelligence
+    float behaviourCheckRate = 3f; //reduce with intelligence
     float t = 0f;
 
     //SENSES
@@ -36,7 +37,7 @@ public class BunnyAI : MonoBehaviour
 
     void Update(){
         t += Time.deltaTime;
-        if (t >= behaviourCheckRate) {
+        if (t >= behaviourCheckRate / (1+stats.intelligence)) {
             t = 0;
             DecideBehaviour(false);
         }
@@ -46,10 +47,12 @@ public class BunnyAI : MonoBehaviour
             adult = true;
         }
 
+        stats.satiation = Mathf.Clamp(stats.satiation - Time.deltaTime * 0.01f, 0f, 1f);
+
         if (pregnant) {
             pregnancyTime += Time.deltaTime;
             if (pregnancyTime >= 30f * stats.pregnancyDuration) { //*pregnancyduration
-                Debug.Log("Give Birth");
+                //Debug.Log("Give Birth");
                 GeneticAlgorithm.instance.GiveBirth(mateStats, stats, transform.position);
                 pregnant = false;
                 pregnancyTime = 0f;
@@ -70,7 +73,7 @@ public class BunnyAI : MonoBehaviour
             return;
         }
         //GATHER INFO
-        float detectionDistance = 20f * stats.earSize;
+        float detectionDistance = 100f * stats.earSize;
         //NERBY CARROTS
         DetectCarrots(detectionDistance);
 
@@ -81,11 +84,11 @@ public class BunnyAI : MonoBehaviour
         
 
         //MAKE DECISION
-        float idleWeight = 1f;
-        float forageWeight = 1f * carrots.Count;// stats.hungryWeight;
-        float mateWeight = 1f * bunnies.Count * stats.gender / (1f + timesMated);
-        float fleeWeight = 0f;
-        float wanderWeight = 0f;
+        float idleWeight = 1f * stats.lazyWeight;
+        float forageWeight = 1f * stats.hungryWeight * (1 - stats.satiation) * carrots.Count;// stats.hungryWeight;
+        float mateWeight = 1f * stats.hornyWeight * stats.satiation * bunnies.Count * stats.gender / (1f + timesMated);
+        float fleeWeight = 0f * stats.scaredWeight;
+        float wanderWeight = 1f * stats.boredWeight;
 
         float total = idleWeight + forageWeight + mateWeight + fleeWeight + wanderWeight;
 

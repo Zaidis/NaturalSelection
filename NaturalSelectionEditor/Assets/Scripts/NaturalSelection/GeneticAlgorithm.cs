@@ -31,14 +31,30 @@ public class GeneticAlgorithm : MonoBehaviour
         GameObject bunny = Instantiate(bunnyPrefab, position, Quaternion.identity);
 
         BunnyStats stats = bunny.GetComponent<BunnyStats>();
-        stats.fertality = RandomPercentage();
-        stats.speed = RandomPercentage();
-        stats.intelligence = RandomPercentage();
-        stats.earSize = RandomPercentage();
-        stats.growthRate = RandomPercentage();
-        stats.foodConsumption = RandomPercentage();
-        stats.pregnancyDuration = RandomPercentage();
-        stats.mutationRate = RandomPercentage();
+        stats.fertality = RandomPercentage(0.25f, 0.75f);
+        stats.speed = RandomPercentage(0f, 1f);
+        stats.intelligence = RandomPercentage(0f, 1f);
+        stats.earSize = RandomPercentage(0f, 1f);
+        stats.growthRate = RandomPercentage(0f, 1f);
+        stats.foodConsumption = RandomPercentage(0.25f, 0.75f);
+        stats.pregnancyDuration = RandomPercentage(0f, 1f);
+        stats.mutationRate = RandomPercentage(0f, 1f);
+
+        stats.scaredWeight = RandomPercentage(0f, 1f);
+        stats.hornyWeight = RandomPercentage(0f, 1f);
+        stats.hungryWeight = RandomPercentage(0f, 1f);
+        stats.boredWeight = RandomPercentage(0f, 1f);
+        stats.lazyWeight = RandomPercentage(0f, 1f);
+        BunnyAI bunnyAI = bunny.GetComponent<BunnyAI>();
+
+        if(DiceRoll(0, 101)) {
+            stats.gender = 1;
+        } else {
+            stats.gender = 0;
+        }
+
+        bunnyAI.age = 30f;
+        bunnyAI.adult = true;
 
         return bunny;
     }
@@ -50,14 +66,27 @@ public class GeneticAlgorithm : MonoBehaviour
     public void RandomizeBunny(GameObject bunny) {
         
         BunnyStats stats = bunny.GetComponent<BunnyStats>();
-        stats.fertality = RandomPercentage();
-        stats.speed = RandomPercentage();
-        stats.intelligence = RandomPercentage();
-        stats.earSize = RandomPercentage();
-        stats.growthRate = RandomPercentage();
-        stats.foodConsumption = RandomPercentage();
-        stats.pregnancyDuration = RandomPercentage();
-        stats.mutationRate = RandomPercentage();
+        stats.fertality = RandomPercentage(0.25f, 0.75f);
+        stats.speed = RandomPercentage(0f, 1f);
+        stats.intelligence = RandomPercentage(0f, 1f);
+        stats.earSize = RandomPercentage(0f, 1f);
+        stats.growthRate = RandomPercentage(0f, 1f);
+        stats.foodConsumption = RandomPercentage(0.25f, 0.75f);
+        stats.pregnancyDuration = RandomPercentage(0f, 1f);
+        stats.mutationRate = RandomPercentage(0f, 1f);
+
+        stats.scaredWeight = RandomPercentage(0f, 1f);
+        stats.hornyWeight = RandomPercentage(0f, 1f);
+        stats.hungryWeight = RandomPercentage(0f, 1f);
+        stats.boredWeight = RandomPercentage(0f, 1f);
+        stats.lazyWeight = RandomPercentage(0f, 1f);
+
+        if (DiceRoll(0, 101)) {
+            stats.gender = 1;
+        }
+        else {
+            stats.gender = 0;
+        }
     }
 
     /// <summary>
@@ -67,17 +96,20 @@ public class GeneticAlgorithm : MonoBehaviour
     /// <param name="female">Female Parent</param>
     public void GiveBirth(BunnyStats male, BunnyStats female, Vector3 position){
 
-        float femaleRate = female.fertality * female.foodConsumption;
-        float maleRate = male.fertality * male.foodConsumption;
+        float femaleRate = female.fertality * female.satiation;
+        float maleRate = male.fertality * male.satiation;
         float birthRate = femaleRate * maleRate;
-        
+
         //most babies = 12 for the average female bunny
+        int count = 0;
         for(int i = 0; i < 12; i++){
             if(DiceRoll(0, 101, birthRate)){
                 //you make the baby
                 CreateBunny(male, female, position);
+                count++;
             }
-        }   
+        }
+        Debug.Log("Birthing " + count + " bunnies");
     }
     public void CreateBunny(BunnyStats dad, BunnyStats mom, Vector3 position)
     {
@@ -168,6 +200,67 @@ public class GeneticAlgorithm : MonoBehaviour
                 child.mutationRate = mom.mutationRate;
             }
         }
+
+        //hungryWeight
+        if (DiceRoll(0, 101, m)) {
+            child.hungryWeight = MutateFloat(dad.hungryWeight, mom.hungryWeight, m);
+        }
+        else {
+            child.hungryWeight = dad.hungryWeight;
+        }
+        //hornyWeight
+        if (DiceRoll(0, 101, m)) {
+            child.hornyWeight = MutateFloat(dad.hornyWeight, mom.hornyWeight, m);
+        }
+        else {
+            child.hornyWeight = mom.hornyWeight;
+        }
+
+        //scaredWeight
+        if (DiceRoll(0, 101, m)) {
+            child.scaredWeight = MutateFloat(dad.scaredWeight, mom.scaredWeight, m);
+        }
+        else {
+            if (DiceRoll(0, 101)) {
+                child.scaredWeight = dad.scaredWeight;
+            }
+            else {
+                child.scaredWeight = mom.scaredWeight;
+            }
+        }
+
+        //bored Weight
+        if (DiceRoll(0, 101, m)) {
+            child.boredWeight = MutateFloat(dad.boredWeight, mom.boredWeight, m);
+        }
+        else {
+            if (DiceRoll(0, 101)) {
+                child.boredWeight = dad.boredWeight;
+            }
+            else {
+                child.boredWeight = mom.boredWeight;
+            }
+        }
+
+        //lazy weight
+        if (DiceRoll(0, 101, m)) {
+            child.lazyWeight = MutateFloat(dad.lazyWeight, mom.lazyWeight, m);
+        }
+        else {
+            if (DiceRoll(0, 101)) {
+                child.lazyWeight = dad.lazyWeight;
+            }
+            else {
+                child.lazyWeight = mom.lazyWeight;
+            }
+        }
+
+        if (DiceRoll(0, 101)) {
+            child.gender = 1;
+        }
+        else {
+            child.gender = 0;
+        }
     }
     private float MutateFloat(float dadValue, float momValue, float mutationRate){
         if(DiceRoll(0, 101, mutateOverhaulChance)){
@@ -188,8 +281,8 @@ public class GeneticAlgorithm : MonoBehaviour
         return newValue;
     }
 
-    private float RandomPercentage() {
-        float r = UnityEngine.Random.Range(0f, 1f);
+    private float RandomPercentage(float i, float j) {
+        float r = UnityEngine.Random.Range(i, j);
         r = Mathf.Round(r * 100f) * 0.01f;
        // Debug.Log(r);
         return r;
