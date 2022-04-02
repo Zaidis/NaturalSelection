@@ -16,16 +16,19 @@ public class Forage : Behaviour
 
     public override void UpdateBehaviour(){
         if (carrot == null) {
+            myAI.behaviourLocked = false;
             SuddenDecision();
             return;
         }
 
         float dist = (carrot.transform.position - transform.position).sqrMagnitude;
         if (dist <= .5f) {
+            myAI.behaviourLocked = true;
             //EATING
             eatTime += Time.deltaTime;
             if (eatTime >= 1f) {
                 //DONE EATING
+                myAI.behaviourLocked = false;
                 Destroy(carrot);
             }
         }
