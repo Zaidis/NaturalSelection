@@ -5,18 +5,30 @@ using System;
 public class GeneticAlgorithm : MonoBehaviour
 {
     //Smaller value = bigger mutations
-    
+    public static GeneticAlgorithm instance;
+    private void Awake()
+    {
+        if (instance == null){
+            instance = this;
+        }
+        else {
+            Destroy(this);
+        }
+        
+    }
+
+
     public float mutationPercentage;
     public float mutateOverhaulChance;
-    public GameObject adultBunny;
-    public GameObject childBunny;
+    public GameObject bunnyPrefab;
 
     private void Start() {
-        CreateRandomBunny();
+        //CreateRandomBunny();
     }
-    public void CreateRandomBunny() {
+
+    public GameObject CreateRandomBunny(Vector3 position) {
         //make baby
-        GameObject bunny = Instantiate(adultBunny);
+        GameObject bunny = Instantiate(bunnyPrefab, position, Quaternion.identity);
 
         BunnyStats stats = bunny.GetComponent<BunnyStats>();
         stats.fertality = RandomPercentage();
@@ -27,6 +39,8 @@ public class GeneticAlgorithm : MonoBehaviour
         stats.foodConsumption = RandomPercentage();
         stats.pregnancyDuration = RandomPercentage();
         stats.mutationRate = RandomPercentage();
+
+        return bunny;
     }
 
     /// <summary>
@@ -51,7 +65,7 @@ public class GeneticAlgorithm : MonoBehaviour
     /// </summary>
     /// <param name="male">Male Parent</param>
     /// <param name="female">Female Parent</param>
-    public void GiveBirth(BunnyStats male, BunnyStats female){
+    public void GiveBirth(BunnyStats male, BunnyStats female, Vector3 position){
 
         float femaleRate = female.fertality * female.foodConsumption;
         float maleRate = male.fertality * male.foodConsumption;
@@ -61,13 +75,14 @@ public class GeneticAlgorithm : MonoBehaviour
         for(int i = 0; i < 12; i++){
             if(DiceRoll(0, 101, birthRate)){
                 //you make the baby
-                CreateBunny(male, female);
+                CreateBunny(male, female, position);
             }
         }   
     }
-    public void CreateBunny(BunnyStats dad, BunnyStats mom){
+    public void CreateBunny(BunnyStats dad, BunnyStats mom, Vector3 position)
+    {
         //make baby
-        GameObject bunny = Instantiate(childBunny);
+        GameObject bunny = Instantiate(bunnyPrefab, position, Quaternion.identity);
         BunnyStats child = bunny.GetComponent<BunnyStats>();
 
         float m = dad.mutationRate * mom.mutationRate * 100;
