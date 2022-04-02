@@ -82,11 +82,11 @@ public class BunnyAI : MonoBehaviour
         
 
         //MAKE DECISION
-        float idleWeight = 1f;
-        float forageWeight = 1f * carrots.Count;// stats.hungryWeight;
-        float mateWeight = 1f * stats.fertality * bunnies.Count * stats.gender / (1f + timesMated);
-        float fleeWeight = 1f;
-        float wanderWeight = 1f;
+        float idleWeight = 1f * stats.lazyWeight;
+        float forageWeight = 1f * stats.hungryWeight * carrots.Count;// stats.hungryWeight;
+        float mateWeight = 1f * stats.hornyWeight * bunnies.Count * stats.gender / (1f + timesMated);
+        float fleeWeight = 0f * stats.scaredWeight;
+        float wanderWeight = 1f * stats.boredWeight;
 
         float total = idleWeight + forageWeight + mateWeight + fleeWeight + wanderWeight;
 
