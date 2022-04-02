@@ -40,6 +40,10 @@ public class GeneticAlgorithm : MonoBehaviour
         stats.pregnancyDuration = RandomPercentage();
         stats.mutationRate = RandomPercentage();
 
+        BunnyAI bunnyAI = bunny.GetComponent<BunnyAI>();
+        bunnyAI.age = 30f;
+        bunnyAI.adult = true;
+
         return bunny;
     }
 
