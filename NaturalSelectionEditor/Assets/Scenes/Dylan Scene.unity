@@ -445,7 +445,7 @@ Terrain:
   m_ScaleInLightmap: 0.0256
   m_LightmapParameters: {fileID: 15203, guid: 0000000000000000f000000000000000, type: 0}
   m_GroupingID: 0
-  m_RenderingLayerMask: 257
+  m_RenderingLayerMask: 1281
   m_AllowAutoConnect: 1
 --- !u!4 &1371472719
 Transform:
@@ -608,6 +608,10 @@ PrefabInstance:
     - target: {fileID: 104983314609271519, guid: 0d4c661ff5f036d42b6eead5d570d725, type: 3}
       propertyPath: m_Name
       value: Truck
+      objectReference: {fileID: 0}
+    - target: {fileID: 104983314764493079, guid: 0d4c661ff5f036d42b6eead5d570d725, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 769
       objectReference: {fileID: 0}
     - target: {fileID: 732540995561318529, guid: 0d4c661ff5f036d42b6eead5d570d725, type: 3}
       propertyPath: m_Materials.Array.data[0]
