@@ -21,12 +21,17 @@ public class BunnyAI : MonoBehaviour
     public int timesMated = 0;
     public bool pregnant = false;
     float pregnancyTime = 0f;
+    public BunnyStats mateStats;
+
+    public bool adult = false;
+    public float age = 0f;
 
     public bool behaviourLocked = false;
 
-    void Start()
-    {
-        
+    void Start(){
+        if (stats.fertality + stats.earSize + stats.speed == 0) {
+            GeneticAlgorithm.instance.RandomizeBunny(gameObject);
+        }
     }
 
     void Update(){
@@ -36,10 +41,16 @@ public class BunnyAI : MonoBehaviour
             DecideBehaviour(false);
         }
 
+        age += Time.deltaTime * stats.growthRate;
+        if (age > 30f) {
+            adult = true;
+        }
+
         if (pregnant) {
             pregnancyTime += Time.deltaTime;
-            if (pregnancyTime >= 10f) { //*pregnancyduration
+            if (pregnancyTime >= 30f * stats.pregnancyDuration) { //*pregnancyduration
                 Debug.Log("Give Birth");
+                GeneticAlgorithm.instance.GiveBirth(mateStats, stats, transform.position);
                 pregnant = false;
                 pregnancyTime = 0f;
             }
@@ -59,7 +70,7 @@ public class BunnyAI : MonoBehaviour
             return;
         }
         //GATHER INFO
-        float detectionDistance = 10f;
+        float detectionDistance = 20f * stats.earSize;
         //NERBY CARROTS
         DetectCarrots(detectionDistance);
 
@@ -135,7 +146,7 @@ public class BunnyAI : MonoBehaviour
         }
         bunnies.Clear();
         for (int i = 0; i < bun.Length; i++) {
-            if (bun[i].GetComponent<BunnyStats>().gender == 0 && !bun[i].GetComponent<BunnyAI>().pregnant) {
+            if (bun[i].GetComponent<BunnyStats>().gender == 0 && !bun[i].GetComponent<BunnyAI>().pregnant && bun[i].GetComponent<BunnyAI>().adult) {
                 bunnies.Add(bun[i]);
             }
         }
