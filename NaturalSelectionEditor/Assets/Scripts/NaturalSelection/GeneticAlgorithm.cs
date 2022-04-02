@@ -9,6 +9,14 @@ public class GeneticAlgorithm : MonoBehaviour
     public float mutationPercentage;
     public float mutateOverhaulChance;
     
+    public void CreateRandomBunny() {
+        //make baby
+        BunnyStats child = new BunnyStats();
+
+        
+
+    }
+
 
     /// <summary>
     /// Called when a male and female bunny give birth. 
@@ -122,6 +130,11 @@ public class GeneticAlgorithm : MonoBehaviour
             return rand - mutationRate;
         }
     }
+
+    private float RandomPercentage() {
+        return Random.Range(0f, 1f);
+    }
+
     //A normal dice roll
     private bool DiceRoll(int i, int j){
         int rand = Random.Range(i, j);
