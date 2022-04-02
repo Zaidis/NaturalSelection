@@ -70,7 +70,7 @@ public class BunnyAI : MonoBehaviour
             return;
         }
         //GATHER INFO
-        float detectionDistance = 20f * stats.earSize;
+        float detectionDistance = 100f * stats.earSize;
         //NERBY CARROTS
         DetectCarrots(detectionDistance);
 
