@@ -9036,7 +9036,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopObject: {fileID: 6838864329209971878}
-  m_wallet: 500
   m_walletText: {fileID: 8280982179340812350}
   m_shopImage: {fileID: 614818376461062857}
   m_description: {fileID: 4054719358754887774}

@@ -9,14 +9,14 @@ public class Shop : MonoBehaviour
 
     public static Shop instance;
     [SerializeField] GameObject shopObject;
-    public int m_wallet; //how much money you have
+    public static int m_wallet; //how much money you have
     [SerializeField] private TextMeshProUGUI m_walletText;
     [SerializeField] private Image m_shopImage;
     [SerializeField] private TextMeshProUGUI m_description;
     [SerializeField] private TextMeshProUGUI m_upgradeTitle;
     [SerializeField] private Button m_purchaseButton;
+    static TextMeshProUGUI walletText;
 
-    
     private ShopButton selectedUpgrade;
 
 
@@ -32,6 +32,8 @@ public class Shop : MonoBehaviour
         } else {
             Destroy(this.gameObject);
         }
+
+        walletText = m_walletText;
     }
     public void ShowMenu(InputAction.CallbackContext callback)
     {
@@ -67,7 +69,11 @@ public class Shop : MonoBehaviour
         selectedUpgrade.GetComponent<Image>().color = Color.red;
         selectedUpgrade.purchased = true;
     }
-
+    public static void UpdateMoney(int money)
+    {
+        m_wallet += money;
+        walletText.text = "$" + m_wallet;
+    }
     /// <summary>
     /// Updates the description and image for the shop. 
     /// </summary>
