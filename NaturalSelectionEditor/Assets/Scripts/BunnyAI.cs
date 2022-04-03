@@ -19,7 +19,7 @@ public class BunnyAI : MonoBehaviour
     public Behaviour[] behaviours;
     [SerializeField] Behaviour currentBehaviour;
 
-    float behaviourCheckRate = 3f; //reduce with intelligence
+    float behaviourCheckRate = 6f; //reduce with intelligence
     float t = 0f;
 
     //SENSES

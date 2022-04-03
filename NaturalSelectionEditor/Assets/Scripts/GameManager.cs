@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     }
 
     void Victory() {
-
+        Debug.Log("VICTORY");
     }
 
     public void CheckDefeat() {
@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
     }
 
     void GameOver() {
-
+        Debug.Log("GAME OVER");
     }
 
 }

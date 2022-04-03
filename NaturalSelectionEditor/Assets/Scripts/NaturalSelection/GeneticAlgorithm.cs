@@ -22,8 +22,38 @@ public class GeneticAlgorithm : MonoBehaviour
     public float mutateOverhaulChance;
     public GameObject bunnyPrefab;
 
+    float fertilityMin, fertilityMax;
+    float speedMin, speedMax;
+    float intelligenceMin, intelligenceMax;
+    float earSizeMin, earSizeMax;
+
+    float fearMin, fearMax;
+    float hungerMin, hungerMax;
+    float hornyMin, hornyMax;
+
     private void Start() {
         //CreateRandomBunny();
+        fertilityMin = PlayerPrefs.GetFloat("fertilityMin", 0.25f);
+        fertilityMax = PlayerPrefs.GetFloat("fertilityMax", 0.75f);
+
+        speedMin = PlayerPrefs.GetFloat("speedMin", 0f);
+        speedMax = PlayerPrefs.GetFloat("speedMax", 1f);
+
+        intelligenceMin = PlayerPrefs.GetFloat("intelligenceMin", 0f);
+        intelligenceMax = PlayerPrefs.GetFloat("intelligenceMax", 1f);
+
+        earSizeMin = PlayerPrefs.GetFloat("earSizeMin", 0f);
+        earSizeMax = PlayerPrefs.GetFloat("earSizeMax", 1f);
+
+
+        fearMin = PlayerPrefs.GetFloat("fearMin", 0f);
+        fearMax = PlayerPrefs.GetFloat("fearMax", 1f);
+
+        hungerMin = PlayerPrefs.GetFloat("hungerMin", 0f);
+        hungerMax = PlayerPrefs.GetFloat("hungerMax", 1f);
+
+        hornyMin = PlayerPrefs.GetFloat("hornyMin", 0f);
+        hornyMax = PlayerPrefs.GetFloat("hornyMax", 1f);
     }
 
     public void CopyStats(BunnyStats myStats, BunnyStats copy) {
@@ -50,18 +80,18 @@ public class GeneticAlgorithm : MonoBehaviour
         GameObject bunny = Instantiate(bunnyPrefab, position, Quaternion.identity);
 
         BunnyStats stats = bunny.GetComponent<BunnyStats>();
-        stats.fertality = RandomPercentage(0.25f, 0.75f);
-        stats.speed = RandomPercentage(0f, 1f);
-        stats.intelligence = RandomPercentage(0f, 1f);
-        stats.earSize = RandomPercentage(0f, 1f);
+        stats.fertality = RandomPercentage(fertilityMin, fertilityMax);
+        stats.speed = RandomPercentage(speedMin, speedMax);
+        stats.intelligence = RandomPercentage(intelligenceMin, intelligenceMax);
+        stats.earSize = RandomPercentage(earSizeMin, earSizeMax);
         stats.growthRate = RandomPercentage(0f, 1f);
         stats.foodConsumption = RandomPercentage(0.25f, 0.75f);
         stats.pregnancyDuration = RandomPercentage(0f, 1f);
         stats.mutationRate = RandomPercentage(0f, 1f);
 
-        stats.scaredWeight = RandomPercentage(0f, 1f);
-        stats.hornyWeight = RandomPercentage(0f, 1f);
-        stats.hungryWeight = RandomPercentage(0f, 1f);
+        stats.scaredWeight = RandomPercentage(fearMin, fearMax);
+        stats.hornyWeight = RandomPercentage(hornyMin, hornyMax);
+        stats.hungryWeight = RandomPercentage(hungerMin, hungerMax);
         stats.boredWeight = RandomPercentage(0f, 1f);
         stats.lazyWeight = RandomPercentage(0f, 1f);
         BunnyAI bunnyAI = bunny.GetComponent<BunnyAI>();
