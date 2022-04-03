@@ -7,6 +7,10 @@ public class UncleJon : MonoBehaviour
     [SerializeField] float detectionRadius, coolDown;
     float timer = 0;
     [SerializeField] LayerMask hitables, bunny;
+    [SerializeField] Vector3 offset;
+    [SerializeField] Transform head, gun;
+    [SerializeField] ParticleSystem particles;
+    [SerializeField] Animator anim;
     // Update is called once per frame
     void Update()
     {
@@ -14,7 +18,7 @@ public class UncleJon : MonoBehaviour
         if(timer >= coolDown)
         {
             //Fire or try to
-            Collider[] c = Physics.OverlapSphere(this.transform.position, detectionRadius, bunny);
+            Collider[] c = Physics.OverlapSphere(this.transform.position + offset, detectionRadius, bunny);
             if (c.Length == 0)
                 return;
             Collider target = c[0];
@@ -41,14 +45,17 @@ public class UncleJon : MonoBehaviour
 
     void Fire(Collider target)
     {
+        anim.SetTrigger("Fire");
         print(target);
         timer = 0;
-        transform.LookAt(target.transform, Vector3.up);
+        particles.Play();
+        head.LookAt(target.transform, Vector3.up);
+        gun.LookAt(target.transform, Vector3.up);
         BunnyKiller.KillBunny(target, this.transform, false);
     }
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(this.transform.position, detectionRadius);
+        Gizmos.DrawWireSphere(this.transform.position + offset, detectionRadius);
     }
 }

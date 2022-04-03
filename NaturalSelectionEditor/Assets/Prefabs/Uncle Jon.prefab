@@ -53,6 +53,9 @@ MonoBehaviour:
   bunny:
     serializedVersion: 2
     m_Bits: 8192
+  offset: {x: 0, y: 0, z: 0}
+  head: {fileID: 0}
+  gun: {fileID: 0}
 --- !u!1 &695679239533150730
 GameObject:
   m_ObjectHideFlags: 0
