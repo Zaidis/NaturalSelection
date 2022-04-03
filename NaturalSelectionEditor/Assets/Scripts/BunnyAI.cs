@@ -94,7 +94,7 @@ public class BunnyAI : MonoBehaviour
         if (!adult) {
             mateWeight = 0f;
         }
-        float fleeWeight = 1f * stats.scaredWeight * detectionDistance / Mathf.Max(truckDist2, 1f);
+        float fleeWeight = 1f * stats.scaredWeight * detectionDistance * detectionDistance / Mathf.Max(truckDist2, 1f);
         if (truckDist2 > detectionDistance * detectionDistance) {
             fleeWeight = 0;
         }
