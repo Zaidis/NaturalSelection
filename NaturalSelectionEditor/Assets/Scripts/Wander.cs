@@ -7,7 +7,9 @@ public class Wander : Behaviour
     Vector3 randomSpot;
     
     public override void StartBehaviour(){
-        randomSpot = transform.position + new Vector3(Random.Range(-10f, 10f), 0, Random.Range(-10f, 10f));
+        randomSpot = new Vector3(30 +Random.Range(Terrain.activeTerrain.transform.position.x, Terrain.activeTerrain.transform.position.x + Terrain.activeTerrain.terrainData.size.x - 30),
+            0,
+            Random.Range(30 + Terrain.activeTerrain.transform.position.y, Terrain.activeTerrain.transform.position.y + Terrain.activeTerrain.terrainData.size.y - 30));
         myMotor.destination = randomSpot;
     }
 

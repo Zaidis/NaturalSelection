@@ -8,6 +8,8 @@ public class Mate : Behaviour
     BunnyAI mateAI;
     float mateTime;
 
+    [SerializeField] AudioSource mateSound;
+
     public override void StartBehaviour(){
         mateTime = 0f;
         BestMate();
@@ -30,7 +32,9 @@ public class Mate : Behaviour
         float dist = (mate.transform.position - transform.position).sqrMagnitude;
         if (dist <= .5f)
         {
-
+            if (!mateSound.isPlaying) {
+                mateSound.Play();
+            }
             myAI.anim.PlayAnimation(BunnyAnimator.Animation.Mate);
 
             //MATING

@@ -5,18 +5,21 @@ using UnityEngine;
 public class UncleJon : MonoBehaviour
 {
     [SerializeField] float detectionRadius, coolDown;
+    float coolDownRandomizer = 0f;
     float timer = 0;
     [SerializeField] LayerMask hitables, bunny;
     [SerializeField] Transform targetOffset;
     [SerializeField] Transform head, gun;
     [SerializeField] ParticleSystem particles;
     [SerializeField] Animator anim;
+
+    [SerializeField] AudioSource shotGunSound;
     //Lowest fertility ear size and speed added up.
     // Update is called once per frame
     void Update()
     {
         timer += Time.deltaTime;
-        if(timer >= coolDown)
+        if(timer >= coolDown + coolDownRandomizer)
         {
             //Fire or try to
             Collider[] c = Physics.OverlapSphere(targetOffset.position, detectionRadius, bunny);
@@ -54,9 +57,12 @@ public class UncleJon : MonoBehaviour
         anim.SetTrigger("Fire");
         print(target);
         timer = 0;
+        coolDownRandomizer = Random.Range(-coolDown/2f, coolDown/2f);
         particles.Play();
         head.LookAt(target.transform, Vector3.up);
         gun.LookAt(target.transform, Vector3.up);
+
+        shotGunSound.Play();
         BunnyKiller.KillBunny(target, this.transform, false);
     }
     private void OnDrawGizmosSelected()

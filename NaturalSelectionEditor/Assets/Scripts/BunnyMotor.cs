@@ -17,6 +17,7 @@ public class BunnyMotor : MonoBehaviour
     }
 
     void FixedUpdate(){
+        //DestinationCheck(); //Do not call, currently broken
         Move();
     }
 
@@ -30,6 +31,13 @@ public class BunnyMotor : MonoBehaviour
             transform.position = new Vector3(currentPos.x + direction2.x, GetTerrainHeight(currentPos + direction2), currentPos.y + direction2.y);
             
         }
+    }
+
+    void DestinationCheck() {
+        Vector2 xLimit = new Vector2(Terrain.activeTerrain.transform.position.x, Terrain.activeTerrain.transform.position.x + Terrain.activeTerrain.terrainData.size.x);
+        Vector2 yLimit = new Vector2(Terrain.activeTerrain.transform.position.y, Terrain.activeTerrain.transform.position.y + Terrain.activeTerrain.terrainData.size.y);
+
+        destination = new Vector2(Mathf.Clamp(destination.x, xLimit.x, xLimit.y), Mathf.Clamp(destination.y, yLimit.x, yLimit.y));
     }
 
     float GetTerrainHeight(Vector2 pos) {

@@ -14,7 +14,7 @@ public class BunnyAI : MonoBehaviour
     [SerializeField] GameObject bodyObject;
     [SerializeField] GameObject brownFur;
 
-    [SerializeField] GameObject shoes;
+    [SerializeField] GameObject shoes, hat;
 
     public Behaviour[] behaviours;
     [SerializeField] Behaviour currentBehaviour;
@@ -59,7 +59,10 @@ public class BunnyAI : MonoBehaviour
             bigEarsW.SetActive(false);
         }
         if (stats.speed >= .75f) {
-            //shoes.SetActive(true);
+            shoes.SetActive(true);
+        }
+        if (stats.intelligence >= .75f) {
+            hat.SetActive(true);
         }
     }
 
@@ -125,7 +128,7 @@ public class BunnyAI : MonoBehaviour
             fleeWeight = 0;
         }
         
-        float wanderWeight = 1f * stats.boredWeight;
+        float wanderWeight = 2f * stats.boredWeight;
 
         float total = idleWeight + forageWeight + mateWeight + fleeWeight + wanderWeight;
 
