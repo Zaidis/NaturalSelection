@@ -197,7 +197,8 @@ public class BunnyAI : MonoBehaviour
     }
 
     public void Die() {
-        BunnyManager.instance.bunnieStats.Remove(stats);
+        if(BunnyManager.instance != null)
+            BunnyManager.instance.bunnieStats.Remove(stats);
         //STUFF
         Destroy(gameObject);
     }
