@@ -509,6 +509,11 @@ MonoBehaviour:
   bunnieStats: []
   terrain: {fileID: 1371472718}
   initialPopulation: 200
+  males: 0
+  females: 0
+  fertality: 0
+  speed: 0
+  earSize: 0
 --- !u!114 &1763369553
 MonoBehaviour:
   m_ObjectHideFlags: 0
