@@ -92,7 +92,6 @@ GameObject:
   - component: {fileID: 17779872094294940}
   - component: {fileID: 825559645096855840}
   - component: {fileID: 825559645096855841}
-  - component: {fileID: 7588145599110981315}
   m_Layer: 16
   m_Name: Bunny-Bit-1-(White)
   m_TagString: Untagged
@@ -144,19 +143,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.36, y: 1, z: 1}
   m_Center: {x: 0, y: 1.8, z: 0}
---- !u!114 &7588145599110981315
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 825559645096855846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e89b87e38c6404a4b85ba3a8ae133f91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnedBlood: 1
 --- !u!1 &1142996916839983910
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,7 +349,6 @@ GameObject:
   - component: {fileID: 2166252672228497069}
   - component: {fileID: 1539039199395302417}
   - component: {fileID: 1539039199395302422}
-  - component: {fileID: 1516220164652720431}
   m_Layer: 16
   m_Name: Head2
   m_TagString: Untagged
@@ -415,19 +400,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.36, y: 1, z: 1}
   m_Center: {x: 0, y: 1.8, z: 0}
---- !u!114 &1516220164652720431
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1539039199395302423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e89b87e38c6404a4b85ba3a8ae133f91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnedBlood: 1
 --- !u!1 &1575748974231676462
 GameObject:
   m_ObjectHideFlags: 0
@@ -439,7 +411,6 @@ GameObject:
   - component: {fileID: 2203949048098176148}
   - component: {fileID: 1575748974231676456}
   - component: {fileID: 1575748974231676457}
-  - component: {fileID: 6095228993536747613}
   m_Layer: 16
   m_Name: Bunny-Bit-3-(White)
   m_TagString: Untagged
@@ -491,19 +462,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.36, y: 1, z: 1}
   m_Center: {x: 0, y: 1.8, z: 0}
---- !u!114 &6095228993536747613
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1575748974231676462}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e89b87e38c6404a4b85ba3a8ae133f91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnedBlood: 1
 --- !u!1 &1859526156999758881
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,7 +473,6 @@ GameObject:
   - component: {fileID: 1334628568360341147}
   - component: {fileID: 1859526156999758883}
   - component: {fileID: 1859526156999758880}
-  - component: {fileID: 2757224920156335358}
   m_Layer: 16
   m_Name: Bunny-Bit-6-(White)
   m_TagString: Untagged
@@ -567,19 +524,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.36, y: 1, z: 1}
   m_Center: {x: 0, y: 1.8, z: 0}
---- !u!114 &2757224920156335358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1859526156999758881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e89b87e38c6404a4b85ba3a8ae133f91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnedBlood: 1
 --- !u!1 &2282526379906899226
 GameObject:
   m_ObjectHideFlags: 0
@@ -591,7 +535,6 @@ GameObject:
   - component: {fileID: 1506164949607466912}
   - component: {fileID: 2282526379906899220}
   - component: {fileID: 2282526379906899221}
-  - component: {fileID: 6711054446375392727}
   m_Layer: 16
   m_Name: Bunny-Bit-7-(White)
   m_TagString: Untagged
@@ -643,19 +586,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.36, y: 1, z: 1}
   m_Center: {x: 0, y: 1.8, z: 0}
---- !u!114 &6711054446375392727
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2282526379906899226}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e89b87e38c6404a4b85ba3a8ae133f91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnedBlood: 1
 --- !u!1 &2624634420434241178
 GameObject:
   m_ObjectHideFlags: 0
@@ -748,7 +678,6 @@ GameObject:
   - component: {fileID: 5956723358563050745}
   - component: {fileID: 6476555566660222557}
   - component: {fileID: 6476555566660222530}
-  - component: {fileID: 6961354700332270022}
   m_Layer: 16
   m_Name: Bunny-Bit-4-(White)
   m_TagString: Untagged
@@ -800,19 +729,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.36, y: 1, z: 1}
   m_Center: {x: 0, y: 1.8, z: 0}
---- !u!114 &6961354700332270022
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6476555566660222531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e89b87e38c6404a4b85ba3a8ae133f91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnedBlood: 1
 --- !u!1 &7070900207280219587
 GameObject:
   m_ObjectHideFlags: 0
@@ -1229,7 +1145,6 @@ GameObject:
   - component: {fileID: 8995962581093609600}
   - component: {fileID: 8616446989455469108}
   - component: {fileID: 8616446989455469109}
-  - component: {fileID: 8490543605065942049}
   m_Layer: 16
   m_Name: Head1
   m_TagString: Untagged
@@ -1281,16 +1196,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.36, y: 1, z: 1}
   m_Center: {x: 0, y: 1.8, z: 0}
---- !u!114 &8490543605065942049
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8616446989455469114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e89b87e38c6404a4b85ba3a8ae133f91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnedBlood: 1

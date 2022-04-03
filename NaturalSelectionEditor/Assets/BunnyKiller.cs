@@ -55,7 +55,7 @@ public class BunnyKiller : MonoBehaviour
             {
                 SpawnDecal(truck, other.transform, DecalLayerEnum.DecalLayer1);
             }
-            SpawnDecalFlat(truck, other.transform, DecalLayerEnum.DecalLayer2);
+            SpawnDecalFlat(truck, other.transform, DecalLayerEnum.DecalLayer2, false);
             BunnyAI bAI = other.GetComponent<BunnyAI>();
             if (bAI != null)
             {
@@ -74,12 +74,13 @@ public class BunnyKiller : MonoBehaviour
         c.GetComponent<DecalProjector>().decalLayerMask = decalLayerEnum;
         Destroy(c, DECALLIFETIME);
     }
-    public static void SpawnDecalFlat(Transform hit, Transform other, DecalLayerEnum decalLayerEnum)
+    public static void SpawnDecalFlat(Transform hit, Transform other, DecalLayerEnum decalLayerEnum, bool isGib)
     {
         //print("Hit: " + hit.position + " - Hit name: " + hit.name + "other: " + other.position + "other name: " + other.name);
         GameObject t = Instantiate(DECALS[Random.Range(0, DECALS.Count)], other.transform.position + Vector3.up, Quaternion.identity);
         t.GetComponent<DecalProjector>().decalLayerMask = decalLayerEnum;
-        Instantiate(GIBBLET, other.transform.position + new Vector3(0, 0.5f, 0), other.transform.rotation);
+        if(!isGib)
+            Instantiate(GIBBLET, other.transform.position + new Vector3(0, 0.5f, 0), other.transform.rotation);
         t.transform.eulerAngles = new Vector3(90, hit.rotation.eulerAngles.y, 0);
         Destroy(t, DECALLIFETIME);
     }
