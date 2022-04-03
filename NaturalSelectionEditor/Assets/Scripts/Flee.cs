@@ -6,7 +6,7 @@ public class Flee : Behaviour
 {
 
     public override void StartBehaviour(){
-        myMotor.sprint = 2f;
+        myMotor.sprint = 10f;
     }
 
     public override void UpdateBehaviour(){
