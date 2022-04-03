@@ -115,18 +115,18 @@ public class GeneticAlgorithm : MonoBehaviour
     public void RandomizeBunny(GameObject bunny) {
         
         BunnyStats stats = bunny.GetComponent<BunnyStats>();
-        stats.fertality = RandomPercentage(0.25f, 0.75f);
-        stats.speed = RandomPercentage(0f, 1f);
-        stats.intelligence = RandomPercentage(0f, 1f);
-        stats.earSize = RandomPercentage(0f, 1f);
+        stats.fertality = RandomPercentage(fertilityMin, fertilityMax);
+        stats.speed = RandomPercentage(speedMin, speedMax);
+        stats.intelligence = RandomPercentage(intelligenceMin, intelligenceMax);
+        stats.earSize = RandomPercentage(earSizeMin, earSizeMax);
         stats.growthRate = RandomPercentage(0f, 1f);
         stats.foodConsumption = RandomPercentage(0.25f, 0.75f);
         stats.pregnancyDuration = RandomPercentage(0f, 1f);
         stats.mutationRate = RandomPercentage(0f, 1f);
 
-        stats.scaredWeight = RandomPercentage(0f, 1f);
-        stats.hornyWeight = RandomPercentage(0f, 1f);
-        stats.hungryWeight = RandomPercentage(0f, 1f);
+        stats.scaredWeight = RandomPercentage(fearMin, fearMax);
+        stats.hornyWeight = RandomPercentage(hornyMin, hornyMax);
+        stats.hungryWeight = RandomPercentage(hungerMin, hungerMax);
         stats.boredWeight = RandomPercentage(0f, 1f);
         stats.lazyWeight = RandomPercentage(0f, 1f);
 

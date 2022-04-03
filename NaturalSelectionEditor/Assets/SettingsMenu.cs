@@ -7,6 +7,13 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] GameObject g;
    public void Display()
     {
-        g.SetActive(!g.activeInHierarchy);
+        if (g.active)
+        {
+            g.SetActive(false);
+        }
+        else {
+            g.SetActive(true);
+        }
+
     }
 }
