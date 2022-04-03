@@ -129,7 +129,7 @@ public class GeneticAlgorithm : MonoBehaviour
                 count++;
             }
         }
-        Debug.Log("Birthing " + count + " bunnies");
+        //Debug.Log("Birthing " + count + " bunnies");
     }
     public void CreateBunny(BunnyStats dad, BunnyStats mom, Vector3 position)
     {

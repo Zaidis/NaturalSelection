@@ -8,6 +8,14 @@ public class BunnyAI : MonoBehaviour
     public BunnyStats stats;
     public BunnyAnimator anim;
 
+    [SerializeField] GameObject earObjectW, earObjectB;
+    [SerializeField] GameObject bigEarsW, bigEarsB;
+
+    [SerializeField] GameObject bodyObject;
+    [SerializeField] GameObject brownFur;
+
+    [SerializeField] GameObject shoes;
+
     public Behaviour[] behaviours;
     [SerializeField] Behaviour currentBehaviour;
 
@@ -35,6 +43,24 @@ public class BunnyAI : MonoBehaviour
             GeneticAlgorithm.instance.RandomizeBunny(gameObject);
         }
         BunnyManager.instance.bunnieStats.Add(stats);
+
+        if (stats.earSize >= .75f) {
+            earObjectW.SetActive(false);
+            bigEarsW.SetActive(true);
+
+            earObjectB.SetActive(false);
+            bigEarsB.SetActive(true);
+        }
+        if (stats.fertality >= .75f) {
+            bodyObject.SetActive(false);
+            brownFur.SetActive(true);
+
+            earObjectW.SetActive(false);
+            bigEarsW.SetActive(false);
+        }
+        if (stats.speed >= .75f) {
+            //shoes.SetActive(true);
+        }
     }
 
     void Update(){
