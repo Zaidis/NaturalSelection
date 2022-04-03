@@ -31,11 +31,14 @@ public class BunnyManager : MonoBehaviour
     float timer = 0f;
 
     public int males, females;
-    public float fertality, speed, earSize;
+    public float fertality, speed, earSize, intelligence;
+    public float fear, hunger, horny;
 
     [SerializeField] float graphFrequency = 1f;
 
-    [SerializeField] Graph maleGraph, femaleGraph, fertalityGraph, speedGraph, earSizeGraph;
+    [SerializeField] Graph maleGraph, femaleGraph, 
+        fertalityGraph, speedGraph, earSizeGraph, intelligenceGraph,
+        fearGraph, hungerGraph, horneyGraph;
 
     void Start(){
         terrainWidth = GameManager.instance.terrain.terrainData.size.x;
@@ -76,6 +79,11 @@ public class BunnyManager : MonoBehaviour
         float f = 0;
         float s = 0;
         float e = 0;
+        float i = 0;
+
+        float fe = 0;
+        float hung = 0;
+        float horn = 0;
 
         foreach (BunnyStats b in bunnieStats) {
             if (b.gender == 1){
@@ -88,6 +96,11 @@ public class BunnyManager : MonoBehaviour
             f += b.fertality;
             s += b.speed;
             e += b.earSize;
+            i += b.intelligence;
+
+            fe += b.scaredWeight;
+            hung += b.hungryWeight;
+            horn += b.hornyWeight;
         }
 
         float count = male + fem;
@@ -95,6 +108,11 @@ public class BunnyManager : MonoBehaviour
         fertality = f / count;
         speed = s / count;
         earSize = e / count;
+        intelligence = i / count;
+
+        fear = fe / count;
+        hunger = hung / count;
+        horny = horn / count;
 
         males = male;
         females = fem;
@@ -106,6 +124,7 @@ public class BunnyManager : MonoBehaviour
             femaleGraph.GraphValue(females / 5);
         }
 
+
         if (fertalityGraph != null){
             fertalityGraph.GraphValue((int)(fertality * 100));
         }
@@ -115,9 +134,20 @@ public class BunnyManager : MonoBehaviour
         if (earSizeGraph != null) {
             earSizeGraph.GraphValue((int)(earSize * 100));
         }
+        if (intelligenceGraph != null) {
+            intelligenceGraph.GraphValue((int)(intelligence * 100));
+        }
         
         
-
+        if (fearGraph != null){
+            fearGraph.GraphValue((int)(fear * 100));
+        }
+        if (hungerGraph != null){
+            hungerGraph.GraphValue((int)(hunger * 100));
+        }
+        if (horneyGraph != null) {
+            horneyGraph.GraphValue((int)(horny * 100));
+        }
         
         
         
