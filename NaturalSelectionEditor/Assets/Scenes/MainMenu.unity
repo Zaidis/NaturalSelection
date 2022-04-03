@@ -21004,7 +21004,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 0.5
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.25
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -22988,10 +22988,10 @@ RectTransform:
   m_Father: {fileID: 1984897131}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 211, y: -197}
-  m_SizeDelta: {x: 393.3713, y: 406.3114}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -197}
+  m_SizeDelta: {x: 393.37134, y: 406.3114}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1272922443
 MonoBehaviour:
@@ -31647,7 +31647,7 @@ MonoBehaviour:
   m_MinValue: 0.5
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0.75
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -39170,7 +39170,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -52495,7 +52495,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3528479287284238024}
-  m_LocalRotation: {x: 0.07707607, y: 0.00000017881393, z: -0.000000013038516, w: 0.9970253}
+  m_LocalRotation: {x: 0.07707607, y: 0.00000017881393, z: -0.000000014901161, w: 0.9970253}
   m_LocalPosition: {x: 0.00000333786, y: 5.0000005, z: -14.999985}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -53596,7 +53596,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3528479288407400755}
-  m_LocalRotation: {x: 0.07707607, y: 0.00000017881393, z: -0.000000013038516, w: 0.9970253}
+  m_LocalRotation: {x: 0.07707607, y: 0.00000017881393, z: -0.000000014901161, w: 0.9970253}
   m_LocalPosition: {x: 0.00000333786, y: 5.0000005, z: -14.999985}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -55275,6 +55275,7 @@ MonoBehaviour:
   fastLoop: {fileID: 8300000, guid: 7f13006ed032fc74abdde3d59beb8ada, type: 3}
   engineAS: {fileID: 3528479288176741233}
   boostSource: {fileID: 3528479288118749993}
+  hornAS: {fileID: 0}
 --- !u!54 &3567788734002229339
 Rigidbody:
   m_ObjectHideFlags: 0

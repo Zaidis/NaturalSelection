@@ -34,6 +34,8 @@ public class GeneticSlidersMenu : MonoBehaviour
     float hungerMin, hungerMax;
     float hornyMin, hornyMax;
 
+    bool startingUp = true;
+
     void Start(){
         fertilityMin = PlayerPrefs.GetFloat("fertilityMin", 0.25f);
         fertilityMax = PlayerPrefs.GetFloat("fertilityMax", 0.75f);
@@ -83,9 +85,14 @@ public class GeneticSlidersMenu : MonoBehaviour
 
 
         UpdateText();
+
+        startingUp = false;
     }
 
     public void OnSLiderChange(){
+        if (startingUp) {
+            return;
+        }
         fertilityMin = fertilityMinSlider.value;
         fertilityMax = fertilityMaxSlider.value;
 
