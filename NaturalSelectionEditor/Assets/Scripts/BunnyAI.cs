@@ -89,6 +89,7 @@ public class BunnyAI : MonoBehaviour
                 GeneticAlgorithm.instance.GiveBirth(mateStats, stats, transform.position);
                 pregnant = false;
                 pregnancyTime = 0f;
+                GameManager.instance.CheckDefeat();
             }
         }
 
