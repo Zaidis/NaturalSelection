@@ -3,16 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.InputSystem;
 public class Shop : MonoBehaviour
 {
 
     public static Shop instance;
+    [SerializeField] GameObject shopObject;
     public int m_wallet; //how much money you have
-
-    //menu
-    [SerializeField] private GameObject m_shopMenu;
-    private bool shopOpen;
-
     [SerializeField] private TextMeshProUGUI m_walletText;
     [SerializeField] private Image m_shopImage;
     [SerializeField] private TextMeshProUGUI m_description;
@@ -25,7 +22,9 @@ public class Shop : MonoBehaviour
 
     [SerializeField] private GameObject sawBlades;
     [SerializeField] private GameObject uncleJon;
-    [SerializeField] private GameObject truck;
+    [SerializeField] private CarMovement truck;
+    [SerializeField] TrapThrower trapThrower;
+    public static bool trailersHaveSawBlades;
 
     private void Awake() {
         if(instance == null) {
@@ -34,18 +33,16 @@ public class Shop : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-
-    public void AccessShopMenu() {
-        if (!shopOpen) {
-            m_shopMenu.SetActive(true);
-            shopOpen = true;
-        } else {
-            m_shopMenu.SetActive(false);
-            shopOpen = false;
+    public void ShowMenu(InputAction.CallbackContext callback)
+    {
+        if (callback.performed)
+        {
+            shopObject.SetActive(!shopObject.activeInHierarchy);
         }
     }
-
     public void PurchaseUpgrade() {
+        if (selectedUpgrade.purchased)
+            return;
         m_wallet -= selectedUpgrade.m_cost;
         m_walletText.text = m_wallet.ToString();
 
@@ -58,12 +55,17 @@ public class Shop : MonoBehaviour
                 uncleJon.SetActive(true);
                 break;
             case 2:
-                truck.GetComponent<CarMovement>().ActivateBoostAbility();
+                truck.ActivateBoostAbility();
                 break;
             case 3:
+                trapThrower.canThrowTrap = true;
+                break;
+            case 4:
+                trailersHaveSawBlades = true;
                 break;
         }
-
+        selectedUpgrade.GetComponent<Image>().color = Color.red;
+        selectedUpgrade.purchased = true;
     }
 
     /// <summary>
