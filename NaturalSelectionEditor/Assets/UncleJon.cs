@@ -26,7 +26,7 @@ public class UncleJon : MonoBehaviour
                     {
                         RaycastHit raycastHit;
                         Physics.Raycast(this.transform.position, c[i].transform.position - this.transform.position, out raycastHit, detectionRadius, hitables, QueryTriggerInteraction.Collide);
-                        if(raycastHit.transform.gameObject.layer == LayerMask.NameToLayer("Bunny"))
+                        if(raycastHit.collider != null && raycastHit.transform.gameObject.layer == LayerMask.NameToLayer("Bunny"))
                         {
                             target = c[i];
                         }
