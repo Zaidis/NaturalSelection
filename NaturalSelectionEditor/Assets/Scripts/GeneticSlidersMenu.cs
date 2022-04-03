@@ -86,7 +86,7 @@ public class GeneticSlidersMenu : MonoBehaviour
     }
 
     public void OnSLiderChange(){
-        fertilityMin = fertilityMaxSlider.value;
+        fertilityMin = fertilityMinSlider.value;
         fertilityMax = fertilityMaxSlider.value;
 
         speedMin = speedMinSlider.value;
