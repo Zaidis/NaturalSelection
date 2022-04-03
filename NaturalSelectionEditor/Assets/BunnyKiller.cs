@@ -45,6 +45,7 @@ public class BunnyKiller : MonoBehaviour
             cam.IncreaseZoom();
             numOfKills++;
             BunnyManager.instance.kills = numOfKills;
+            GameManager.instance.CheckVictory(numOfKills);
             TrailerSpawner ts = FindObjectOfType<TrailerSpawner>();
             ts.AddCorpse();
             if (numOfKills % TrailerSpawner.corpsesPerTrailer == 0)
