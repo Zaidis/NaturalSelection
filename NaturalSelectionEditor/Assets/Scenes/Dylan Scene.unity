@@ -589,12 +589,20 @@ MonoBehaviour:
   fertality: 0
   speed: 0
   earSize: 0
+  intelligence: 0
+  fear: 0
+  hunger: 0
+  horny: 0
   graphFrequency: 1
   maleGraph: {fileID: 0}
   femaleGraph: {fileID: 0}
   fertalityGraph: {fileID: 0}
   speedGraph: {fileID: 0}
   earSizeGraph: {fileID: 0}
+  intelligenceGraph: {fileID: 0}
+  fearGraph: {fileID: 0}
+  hungerGraph: {fileID: 0}
+  horneyGraph: {fileID: 0}
 --- !u!114 &1763369553
 MonoBehaviour:
   m_ObjectHideFlags: 0
