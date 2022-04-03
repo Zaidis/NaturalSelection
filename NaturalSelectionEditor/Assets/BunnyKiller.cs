@@ -17,6 +17,7 @@ public class BunnyKiller : MonoBehaviour
     [SerializeField] AudioClip[] hitSFXs;
     [SerializeField] AudioSource[] audioSources;
     int audioIndex = 0;
+    [SerializeField] bool menuScreenActive;
     private void Awake()
     {
         DECALS = decals;
@@ -40,12 +41,21 @@ public class BunnyKiller : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Bunny"))
         {
-
             cam.IncreaseZoom();
             numOfKills++;
-            Shop.UpdateMoney(4);
-            BunnyManager.instance.kills = numOfKills;
-            GameManager.instance.CheckVictory(numOfKills);
+            try
+            {
+                Shop.UpdateMoney(4);
+                BunnyManager.instance.kills = numOfKills;
+                GameManager.instance.CheckVictory(numOfKills);
+            }
+            catch
+            {
+
+            }
+            
+            
+            
             TrailerSpawner ts = FindObjectOfType<TrailerSpawner>();
             ts.AddCorpse();
             if (numOfKills % TrailerSpawner.corpsesPerTrailer == 0)
