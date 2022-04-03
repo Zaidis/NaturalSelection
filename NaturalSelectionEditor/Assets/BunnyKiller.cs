@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.Rendering.HighDefinition;
 public class BunnyKiller : MonoBehaviour
 {
+
+    public static CameraController cam;
     [SerializeField] List<GameObject> decals = new List<GameObject>();
     [SerializeField] GameObject gibblet;
     public static List<GameObject> DECALS = new List<GameObject>();
@@ -16,6 +18,7 @@ public class BunnyKiller : MonoBehaviour
         DECALS = decals;
         GIBBLET = gibblet;
         DECALLIFETIME = decalLifeTime;
+        cam = GetComponent<CameraController>();
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -26,6 +29,8 @@ public class BunnyKiller : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Bunny"))
         {
+
+            cam.IncreaseZoom();
             numOfKills++;
             TrailerSpawner ts = FindObjectOfType<TrailerSpawner>();
             ts.AddCorpse();
