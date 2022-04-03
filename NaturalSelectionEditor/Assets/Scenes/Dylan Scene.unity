@@ -604,7 +604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6575d033ec7fdee4a9f743d2bf6da1ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  truck: {fileID: 0}
+  truck: {fileID: 104983313863829346}
   bunnieStats: []
   terrain: {fileID: 1371472718}
   initialPopulation: 200
@@ -5587,3 +5587,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d4c661ff5f036d42b6eead5d570d725, type: 3}
+--- !u!4 &104983313863829346 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 104983314609271518, guid: 0d4c661ff5f036d42b6eead5d570d725, type: 3}
+  m_PrefabInstance: {fileID: 104983313863829345}
+  m_PrefabAsset: {fileID: 0}
