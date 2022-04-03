@@ -19,4 +19,27 @@ public class GameManager : MonoBehaviour
 
     public Terrain terrain;
 
+
+    public void CheckVictory(int bunniesKilled) {
+        if (bunniesKilled >= 1000) {
+            Victory();
+        }
+    }
+
+    void Victory() {
+
+    }
+
+    public void CheckDefeat() {
+        int pop = BunnyManager.instance.males + BunnyManager.instance.females;
+
+        if (pop >= 1000) {
+            GameOver();
+        }
+    }
+
+    void GameOver() {
+
+    }
+
 }
