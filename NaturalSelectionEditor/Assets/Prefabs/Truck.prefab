@@ -75,7 +75,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &489992994
 Transform:
   m_ObjectHideFlags: 0
@@ -566,7 +566,6 @@ GameObject:
   - component: {fileID: 1744450840}
   - component: {fileID: 1744450843}
   - component: {fileID: 1744450842}
-  - component: {fileID: 1744450841}
   m_Layer: 14
   m_Name: Head
   m_TagString: Untagged
@@ -637,20 +636,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1744450841
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1744450839}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -2432090755550338912, guid: fc653b2d078455a4b9e67d06edf3095d, type: 3}
 --- !u!1 &2123465778
 GameObject:
   m_ObjectHideFlags: 0
@@ -1613,25 +1598,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.7000012, y: 2.0000002, z: 3.0000007}
   m_Center: {x: 0.5500002, y: -0.9999999, z: 0}
---- !u!95 &1265926164
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2795848001299998920}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 22e6efe00bef27e40a369b4dd2fa9a9b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &104983314817407149
 GameObject:
   m_ObjectHideFlags: 0
@@ -2182,6 +2148,25 @@ WheelCollider:
     m_AsymptoteValue: 0.3
     m_Stiffness: 3
   m_Enabled: 1
+--- !u!95 &1670196161
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104983315466898654}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 22e6efe00bef27e40a369b4dd2fa9a9b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &104983315560408712
 GameObject:
   m_ObjectHideFlags: 0
@@ -7290,14 +7275,14 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!95 &1670196161
+--- !u!95 &1265926164
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 104983315466898654}
+  m_GameObject: {fileID: 2795848001299998920}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 22e6efe00bef27e40a369b4dd2fa9a9b, type: 2}
@@ -7565,14 +7550,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27b2d14398415c740a33f75a425b833b, type: 3}
---- !u!4 &2795848001299998903 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2862074076627603399, guid: 27b2d14398415c740a33f75a425b833b, type: 3}
-  m_PrefabInstance: {fileID: 104983314787919728}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2795848001299998920 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2862074076627603384, guid: 27b2d14398415c740a33f75a425b833b, type: 3}
+  m_PrefabInstance: {fileID: 104983314787919728}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2795848001299998903 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2862074076627603399, guid: 27b2d14398415c740a33f75a425b833b, type: 3}
   m_PrefabInstance: {fileID: 104983314787919728}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &869242135292603799
