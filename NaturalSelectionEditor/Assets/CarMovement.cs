@@ -39,7 +39,7 @@ public class CarMovement : MonoBehaviour
     float engineUpdateTimer = 0f;
 
     [SerializeField] AudioClip idleLoop, fastLoop;
-    [SerializeField] AudioSource engineAS, boostSource;
+    [SerializeField] AudioSource engineAS, boostSource, hornAS;
 
 
     private void Awake()
@@ -197,5 +197,10 @@ public class CarMovement : MonoBehaviour
     {
         canBoost = true;
         boostMeter.gameObject.SetActive(true);
+    }
+
+
+    public void HonkHorn() {
+        hornAS.Play();
     }
 }
