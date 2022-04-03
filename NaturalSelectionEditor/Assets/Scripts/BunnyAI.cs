@@ -85,7 +85,7 @@ public class BunnyAI : MonoBehaviour
         DetectBunnies(detectionDistance); //Only Ladies
 
         //TRUCK
-        
+        float truckDist2 = (BunnyManager.instance.truck.position - transform.position).sqrMagnitude;
 
         //MAKE DECISION
         float idleWeight = 1f * stats.lazyWeight;
@@ -94,7 +94,11 @@ public class BunnyAI : MonoBehaviour
         if (!adult) {
             mateWeight = 0f;
         }
-        float fleeWeight = 0f * stats.scaredWeight;
+        float fleeWeight = 1f * stats.scaredWeight * detectionDistance / Mathf.Max(truckDist2, 1f);
+        if (truckDist2 > detectionDistance * detectionDistance) {
+            fleeWeight = 0;
+        }
+        
         float wanderWeight = 1f * stats.boredWeight;
 
         float total = idleWeight + forageWeight + mateWeight + fleeWeight + wanderWeight;
