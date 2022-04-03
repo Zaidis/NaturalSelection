@@ -75,7 +75,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &489992994
 Transform:
   m_ObjectHideFlags: 0
@@ -1197,7 +1197,7 @@ MonoBehaviour:
   downwardForce: {x: 0, y: -2000, z: 0}
   forceMode: 0
   isTrailer: 0
-  canBoost: 0
+  canBoost: 1
   maxBoostMeter: 100
   boostConsumptionRate: 5
   boostRechargeRate: 15
@@ -1695,8 +1695,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5.7000012, y: 2.0000002, z: 3.0000007}
-  m_Center: {x: 0.5500002, y: -0.9999999, z: 0}
+  m_Size: {x: 5.096388, y: 1.8572314, z: 3.0000007}
+  m_Center: {x: 0.67659837, y: -0.92861545, z: 2.5096155e-15}
 --- !u!1 &104983314817407149
 GameObject:
   m_ObjectHideFlags: 0
@@ -7599,9 +7599,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2862074075195793134, guid: 27b2d14398415c740a33f75a425b833b, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 769
+      objectReference: {fileID: 0}
     - target: {fileID: 2862074076627603384, guid: 27b2d14398415c740a33f75a425b833b, type: 3}
       propertyPath: m_Name
       value: Saw Holder (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2862074076627603398, guid: 27b2d14398415c740a33f75a425b833b, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 769
       objectReference: {fileID: 0}
     - target: {fileID: 2862074076627603399, guid: 27b2d14398415c740a33f75a425b833b, type: 3}
       propertyPath: m_RootOrder
@@ -7834,9 +7842,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2862074075195793134, guid: 27b2d14398415c740a33f75a425b833b, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 769
+      objectReference: {fileID: 0}
     - target: {fileID: 2862074076627603384, guid: 27b2d14398415c740a33f75a425b833b, type: 3}
       propertyPath: m_Name
       value: Saw Holder
+      objectReference: {fileID: 0}
+    - target: {fileID: 2862074076627603398, guid: 27b2d14398415c740a33f75a425b833b, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 769
       objectReference: {fileID: 0}
     - target: {fileID: 2862074076627603399, guid: 27b2d14398415c740a33f75a425b833b, type: 3}
       propertyPath: m_RootOrder
