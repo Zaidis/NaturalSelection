@@ -16,6 +16,8 @@ public class BunnyManager : MonoBehaviour
         
     }
 
+    public Transform truck;
+
     public List<BunnyStats> bunnieStats = new List<BunnyStats>();
 
     public Terrain terrain;
@@ -31,14 +33,9 @@ public class BunnyManager : MonoBehaviour
     public int males, females;
     public float fertality, speed, earSize;
 
-    int[] maleGraph = new int[60];
-    int[] femaleGraph = new int[60];
+    [SerializeField] float graphFrequency = 1f;
 
-    int[] fertalityGraph = new int[60];
-    int[] speedGraph = new int[60];
-    int[] earSizeGraph = new int[60];
-
-    int graphTimeIndex = 0;
+    [SerializeField] Graph maleGraph, femaleGraph, fertalityGraph, speedGraph, earSizeGraph;
 
     void Start(){
         terrainWidth = GameManager.instance.terrain.terrainData.size.x;
@@ -55,9 +52,8 @@ public class BunnyManager : MonoBehaviour
 
     void Update(){
         timer += Time.unscaledDeltaTime;
-        if (timer >= 1f) {
+        if (timer >= graphFrequency) {
             timer = 0f;
-            graphTimeIndex = (graphTimeIndex + 1) % 60;
             UpdateAverages();
             GraphValues();
         }
@@ -103,13 +99,21 @@ public class BunnyManager : MonoBehaviour
         males = male;
         females = fem;
 
+        maleGraph.GraphValue(males/5);
+        femaleGraph.GraphValue(females / 5);
+
+        fertalityGraph.GraphValue((int)(fertality * 100));
+        speedGraph.GraphValue((int)(speed * 100));
+        earSizeGraph.GraphValue((int)(earSize * 100));
+
+        /*
         maleGraph[graphTimeIndex] = males;
         femaleGraph[graphTimeIndex] = females;
 
         fertalityGraph[graphTimeIndex] = (int)(fertality * 100);
         speedGraph[graphTimeIndex] = (int)(speed * 100);
         earSizeGraph[graphTimeIndex] = (int)(earSize * 100);
-
+        */
 
     }
 

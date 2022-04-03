@@ -179,6 +179,8 @@ GameObject:
   - component: {fileID: 5534368328056184289}
   - component: {fileID: 5534368328056184288}
   - component: {fileID: 5534368328056184220}
+  - component: {fileID: 4723164171851854181}
+  - component: {fileID: 2892237536853906665}
   m_Layer: 13
   m_Name: Bunny
   m_TagString: Untagged
@@ -233,6 +235,8 @@ MonoBehaviour:
   - {fileID: 5534368328056184289}
   - {fileID: 5534368328056184288}
   - {fileID: 5534368328056184220}
+  - {fileID: 4723164171851854181}
+  - {fileID: 2892237536853906665}
   currentBehaviour: {fileID: 0}
   carrotMask:
     serializedVersion: 2
@@ -357,6 +361,36 @@ MonoBehaviour:
   myMotor: {fileID: 5534368328056184294}
   myAI: {fileID: 5534368328056184290}
   mate: {fileID: 0}
+--- !u!114 &4723164171851854181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5534368328056184293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 695477a8bf8e3e24fa04d30c881845be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  behaviour: 3
+  myMotor: {fileID: 5534368328056184294}
+  myAI: {fileID: 5534368328056184290}
+--- !u!114 &2892237536853906665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5534368328056184293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61b6c02b58a768f4c85a9966552208b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  behaviour: 4
+  myMotor: {fileID: 5534368328056184294}
+  myAI: {fileID: 5534368328056184290}
 --- !u!1 &5534368329336142566
 GameObject:
   m_ObjectHideFlags: 0
