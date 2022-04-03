@@ -30,13 +30,13 @@ public class BunnyManager : MonoBehaviour
 
     float timer = 0f;
 
-    public int males, females;
+    public int males, females, kills;
     public float fertality, speed, earSize, intelligence;
     public float fear, hunger, horny;
 
     [SerializeField] float graphFrequency = 1f;
 
-    [SerializeField] Graph maleGraph, femaleGraph, 
+    [SerializeField] Graph maleGraph, femaleGraph, killGraph,
         fertalityGraph, speedGraph, earSizeGraph, intelligenceGraph,
         fearGraph, hungerGraph, horneyGraph;
 
@@ -122,6 +122,9 @@ public class BunnyManager : MonoBehaviour
         }
         if (femaleGraph != null){
             femaleGraph.GraphValue(females / 5);
+        }
+        if (killGraph != null) {
+            killGraph.GraphValue(kills / 5);
         }
 
 

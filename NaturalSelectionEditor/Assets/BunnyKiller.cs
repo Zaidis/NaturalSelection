@@ -13,6 +13,11 @@ public class BunnyKiller : MonoBehaviour
     public static int numOfKills;
     [SerializeField] float decalLifeTime;
     static float DECALLIFETIME;
+
+    [SerializeField] AudioClip[] hitSFXs;
+    [SerializeField] AudioSource[] audioSources;
+    int audioIndex = 0;
+
     private void Awake()
     {
         DECALS = decals;
@@ -22,6 +27,13 @@ public class BunnyKiller : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Bunny")){
+            audioSources[audioIndex].clip = hitSFXs[Random.Range(0, hitSFXs.Length)];
+            audioSources[audioIndex].Play();
+            audioIndex = (audioIndex + 1) % audioSources.Length;
+        }
+        
+
         KillBunny(other, this.transform, true);
     }
 
@@ -32,6 +44,7 @@ public class BunnyKiller : MonoBehaviour
 
             cam.IncreaseZoom();
             numOfKills++;
+            BunnyManager.instance.kills = numOfKills;
             TrailerSpawner ts = FindObjectOfType<TrailerSpawner>();
             ts.AddCorpse();
             if (numOfKills % TrailerSpawner.corpsesPerTrailer == 0)

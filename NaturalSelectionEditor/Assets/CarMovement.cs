@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using TMPro;
 [System.Serializable]
 public class AxleInfo
 {
@@ -30,6 +31,17 @@ public class CarMovement : MonoBehaviour
     float currentBoostMeter;
     bool boosting;
     float timer = 0;
+
+    public float speed;
+    [SerializeField] TextMeshProUGUI speedometerText;
+    Vector3 previousPos;
+    float speedUpdateTimer = 0f;
+    float engineUpdateTimer = 0f;
+
+    [SerializeField] AudioClip idleLoop, fastLoop;
+    [SerializeField] AudioSource engineAS, boostSource;
+
+
     private void Awake()
     {
         if (isTrailer)
@@ -45,6 +57,7 @@ public class CarMovement : MonoBehaviour
             if (boostMeter.gameObject != null)
                 boostMeter.gameObject.SetActive(canBoost);
         }
+        previousPos = transform.position;
         
     }
     private void Update()
@@ -67,7 +80,49 @@ public class CarMovement : MonoBehaviour
             ApplyLocalPositionToVisuals(axleInfo.rightWheel, axleInfo.rightTire);
         }
         UpdateMeter();
+        UpdateSpeed();
+        UpdateSFX();
     }
+
+    void UpdateSpeed() {
+        float trueSpeed = (transform.position - previousPos).magnitude * 2.2369356f / Time.deltaTime;
+        speed = (speed*3 + trueSpeed) / 4f;
+
+        previousPos = transform.position;
+        if (speedometerText != null && speedUpdateTimer >= .5f) {
+            speedometerText.text = Mathf.RoundToInt(speed).ToString();
+            speedUpdateTimer = 0f;
+        }
+        speedUpdateTimer += Time.deltaTime;
+    }
+
+    void UpdateSFX() {
+        if (engineAS != null) {
+            if (boosting && engineUpdateTimer > .5f){
+                engineAS.clip = fastLoop;
+                if (!engineAS.isPlaying){
+                    engineAS.Play();
+                }
+                engineUpdateTimer = 0f;
+            }
+            else if (engineUpdateTimer > .5f)
+            {
+                engineAS.clip = idleLoop;
+                if (!engineAS.isPlaying){
+                    engineAS.Play();
+                }
+                engineUpdateTimer = 0f;
+                
+            }
+
+            engineAS.pitch = 1 + speed / 40f;
+
+            engineUpdateTimer += Time.deltaTime;
+        }
+    }
+
+
+
     // finds the corresponding visual wheel
     // correctly applies the transform
     public void ApplyLocalPositionToVisuals(WheelCollider collider, Transform wheel)
@@ -130,6 +185,7 @@ public class CarMovement : MonoBehaviour
         if (callback.performed)
         {
             boosting = true;
+            boostSource.Play();
         }
         else
         {

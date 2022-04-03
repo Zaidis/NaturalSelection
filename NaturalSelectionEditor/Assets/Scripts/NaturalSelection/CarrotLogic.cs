@@ -14,6 +14,9 @@ public class CarrotLogic : MonoBehaviour
     private float terrainLength;
     private float xTerrain;
     private float zTerrain;
+
+    float boarderBleed = 20f;
+
     public void Start() {
         timer = maxTimer;
         //Get terrain size
@@ -37,8 +40,8 @@ public class CarrotLogic : MonoBehaviour
     }
     private void SpawnCarrot() {
         //Generate random x,z,y position on the terrain
-        float x = Random.Range(xTerrain, xTerrain + terrainWidth);
-        float z = Random.Range(zTerrain, zTerrain + terrainLength);
+        float x = (Random.Range(xTerrain + boarderBleed, xTerrain + terrainWidth - boarderBleed) + Random.Range(xTerrain + boarderBleed, xTerrain + terrainWidth - boarderBleed))/2f;
+        float z = (Random.Range(zTerrain + boarderBleed, zTerrain + terrainLength - boarderBleed) + Random.Range(zTerrain + boarderBleed, zTerrain + terrainLength - boarderBleed))/2f;
         float y = Terrain.activeTerrain.SampleHeight(new Vector3(x, 0, z));
 
         //Apply Offset if needed
