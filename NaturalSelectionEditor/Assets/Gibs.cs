@@ -16,12 +16,12 @@ public class Gibs : MonoBehaviour
             if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
             {
                 //print("Spawn blood on Ground");
-                BunnyKiller.SpawnDecalFlat(this.transform, this.transform, UnityEngine.Rendering.HighDefinition.DecalLayerEnum.DecalLayer2);
+                BunnyKiller.SpawnDecalFlat(this.transform, this.transform, UnityEngine.Rendering.HighDefinition.DecalLayerEnum.DecalLayer2, true);
                 spawnedBlood = true;
             }
             else if (collision.gameObject.layer == LayerMask.NameToLayer("Truck"))
             {
-                //print("Spawn blood on Truck");
+                print("Spawn blood on Truck");
                 BunnyKiller.SpawnDecal(this.transform, collision.transform, UnityEngine.Rendering.HighDefinition.DecalLayerEnum.DecalLayer1);
                 spawnedBlood = true;
             }
