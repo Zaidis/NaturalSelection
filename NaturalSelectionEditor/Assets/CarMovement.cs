@@ -17,12 +17,14 @@ public class CarMovement : MonoBehaviour
     public List<AxleInfo> axleInfos;
     public float maxMotorTorque;
     public float maxSteeringAngle;
+    public float boostAddition;
     private float vert, hori;
     [SerializeField] Rigidbody rb;
     [SerializeField] Vector3 downwardForce;
     [SerializeField] ForceMode forceMode;
     [SerializeField] bool isTrailer;
-
+    [SerializeField] bool canBoost;
+    bool boosting;
     private void Awake()
     {
         if (isTrailer)
@@ -59,7 +61,8 @@ public class CarMovement : MonoBehaviour
        
             float motor = maxMotorTorque * vert;
             float steering = maxSteeringAngle * hori;
-           
+        if (canBoost && boosting)
+            motor += boostAddition;
             foreach (AxleInfo axleInfo in axleInfos)
             {
                 if (axleInfo.steering && !isTrailer)
@@ -80,5 +83,17 @@ public class CarMovement : MonoBehaviour
         vert = callback.ReadValue<Vector2>().y;
         hori = callback.ReadValue<Vector2>().x;
 
+    }
+
+    public void Boost(InputAction.CallbackContext callback)
+    {
+        if (callback.performed)
+        {
+            boosting = true;
+        }
+        else
+        {
+            boosting = false;
+        }
     }
 }

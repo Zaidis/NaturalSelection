@@ -1131,10 +1131,12 @@ MonoBehaviour:
     steering: 1
   maxMotorTorque: 1500
   maxSteeringAngle: 30
+  boostAddition: 3000
   rb: {fileID: 104983314609271457}
   downwardForce: {x: 0, y: -2000, z: 0}
   forceMode: 0
   isTrailer: 0
+  canBoost: 0
 --- !u!114 &104983314609271459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1240,6 +1242,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: ad46983d-ed40-4424-83d9-49d4ea5424d0
     m_ActionName: Player/Space[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 104983314609271456}
+        m_TargetAssemblyTypeName: CarMovement, Assembly-CSharp
+        m_MethodName: Boost
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 5e71f5b5-fc59-4c5b-bb42-4ce1454dfab0
+    m_ActionName: Player/Boost[/Keyboard/shift]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -1613,25 +1631,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.7000012, y: 2.0000002, z: 3.0000007}
   m_Center: {x: 0.5500002, y: -0.9999999, z: 0}
---- !u!95 &1265926164
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2795848001299998920}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 22e6efe00bef27e40a369b4dd2fa9a9b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &104983314817407149
 GameObject:
   m_ObjectHideFlags: 0
@@ -2182,6 +2181,25 @@ WheelCollider:
     m_AsymptoteValue: 0.3
     m_Stiffness: 3
   m_Enabled: 1
+--- !u!95 &1670196161
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104983315466898654}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 22e6efe00bef27e40a369b4dd2fa9a9b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &104983315560408712
 GameObject:
   m_ObjectHideFlags: 0
@@ -7290,14 +7308,14 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!95 &1670196161
+--- !u!95 &1265926164
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 104983315466898654}
+  m_GameObject: {fileID: 2795848001299998920}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 22e6efe00bef27e40a369b4dd2fa9a9b, type: 2}
