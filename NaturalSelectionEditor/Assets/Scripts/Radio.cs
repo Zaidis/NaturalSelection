@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.InputSystem;
 
 public class Radio : MonoBehaviour
 {
@@ -30,13 +31,17 @@ public class Radio : MonoBehaviour
         }
     }
 
-    void ChangeStation() {
-        currentStation++;
-        if (currentStation >= stations.Length) {
-            currentStation = 1;
+    public void ChangeStation(InputAction.CallbackContext context) {
+        if (context.performed) {
+            currentStation++;
+            if (currentStation >= stations.Length)
+            {
+                currentStation = 1;
+            }
+            audioSource.clip = stations[Mathf.Clamp(currentStation, 1, stations.Length)];
+            audioSource.Play();
+            staionText.text = stationNames[Mathf.Clamp(currentStation, 1, stations.Length)];
         }
-        audioSource.clip = stations[Mathf.Clamp(currentStation, 1, stations.Length)];
-        audioSource.Play();
-        staionText.text = stationNames[Mathf.Clamp(currentStation, 1, stations.Length)];
+        
     }
 }
