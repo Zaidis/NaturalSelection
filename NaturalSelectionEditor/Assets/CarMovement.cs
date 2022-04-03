@@ -37,11 +37,15 @@ public class CarMovement : MonoBehaviour
     }
     private void Start()
     {
-        currentBoostMeter = maxBoostMeter;
+        if (!isTrailer)
+        {
+            currentBoostMeter = maxBoostMeter;
+
+            UpdateMeter();
+            if (boostMeter.gameObject != null)
+                boostMeter.gameObject.SetActive(canBoost);
+        }
         
-        UpdateMeter();
-        if(boostMeter.gameObject != null)
-            boostMeter.gameObject.SetActive(canBoost);
     }
     private void Update()
     {
@@ -110,7 +114,7 @@ public class CarMovement : MonoBehaviour
     }
     void UpdateMeter()
     {
-        if(boostMeter != null && boostMeter.gameObject.activeInHierarchy)
+        if(!isTrailer && boostMeter != null && boostMeter.gameObject.activeInHierarchy)
             boostMeter.fillAmount = currentBoostMeter / maxBoostMeter;
         
     }
