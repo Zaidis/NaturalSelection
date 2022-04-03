@@ -99,12 +99,28 @@ public class BunnyManager : MonoBehaviour
         males = male;
         females = fem;
 
-        maleGraph.GraphValue(males/5);
-        femaleGraph.GraphValue(females / 5);
+        if (maleGraph != null) {
+            maleGraph.GraphValue(males / 5);
+        }
+        if (femaleGraph != null){
+            femaleGraph.GraphValue(females / 5);
+        }
 
-        fertalityGraph.GraphValue((int)(fertality * 100));
-        speedGraph.GraphValue((int)(speed * 100));
-        earSizeGraph.GraphValue((int)(earSize * 100));
+        if (fertalityGraph != null){
+            fertalityGraph.GraphValue((int)(fertality * 100));
+        }
+        if (speedGraph != null){
+            speedGraph.GraphValue((int)(speed * 100));
+        }
+        if (earSizeGraph != null) {
+            earSizeGraph.GraphValue((int)(earSize * 100));
+        }
+        
+        
+
+        
+        
+        
 
         /*
         maleGraph[graphTimeIndex] = males;
