@@ -10,20 +10,25 @@ public class TrapThrower : MonoBehaviour
     [SerializeField] float randomDirectionConstraint, randomVerticalConstraint;
     [SerializeField] GameObject trap;
     [SerializeField] Transform throwPoint;
+    public bool canThrowTrap;
     // Update is called once per frame
     void Update()
     {
-        if(timer < coolDown)
+        if (canThrowTrap)
         {
-            timer += Time.deltaTime;
+            if (timer < coolDown)
+            {
+                timer += Time.deltaTime;
+            }
+            else if (pressing && timer >= coolDown)
+            {
+                timer = 0;
+                //Throw Trap
+                GameObject g = Instantiate(trap, throwPoint.position, Quaternion.identity);
+                g.GetComponent<Rigidbody>().velocity = Vector3.up + new Vector3(Random.Range(-randomDirectionConstraint, randomDirectionConstraint), Random.Range(-randomVerticalConstraint, randomVerticalConstraint), Random.Range(-randomDirectionConstraint, randomDirectionConstraint));
+            }
         }
-        else if(pressing && timer >= coolDown)
-        {
-            timer = 0;
-            //Throw Trap
-            GameObject g = Instantiate(trap, throwPoint.position, Quaternion.identity);
-            g.GetComponent<Rigidbody>().velocity = Vector3.up + new Vector3(Random.Range(-randomDirectionConstraint, randomDirectionConstraint), Random.Range(-randomVerticalConstraint, randomVerticalConstraint), Random.Range(-randomDirectionConstraint, randomDirectionConstraint));
-        }
+        
     }
 
     public void ThrowTrap(InputAction.CallbackContext callbackContext)
