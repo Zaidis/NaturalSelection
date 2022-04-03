@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
 
     public static GameManager instance;
+    bool starting;
     private void Awake()
     {
         if (instance == null){
@@ -39,7 +40,12 @@ public class GameManager : MonoBehaviour
     }
 
     void GameOver() {
-        Debug.Log("GAME OVER");
+        if (!starting)
+        {
+            starting = true;
+            SceneManager.LoadScene("LoseScene");
+        }
+        //Debug.Log("GAME OVER");
     }
 
 }
