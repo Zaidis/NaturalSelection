@@ -10,11 +10,6 @@ public class ShopButton : MonoBehaviour
     public string m_title;
     [TextArea()]
     public string m_Description;
-
-    private void Start() {
-        
-    }
-
-
+    public bool purchased;
 
 }
