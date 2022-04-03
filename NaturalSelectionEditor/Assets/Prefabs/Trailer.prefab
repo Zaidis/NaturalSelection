@@ -608,10 +608,23 @@ MonoBehaviour:
     steering: 0
   maxMotorTorque: 50
   maxSteeringAngle: 30
+  boostAddition: 0
   rb: {fileID: 5477050221288827533}
   downwardForce: {x: 0, y: 0, z: 0}
   forceMode: 0
   isTrailer: 1
+  canBoost: 0
+  maxBoostMeter: 0
+  boostConsumptionRate: 0
+  boostRechargeRate: 0
+  timeToBoostRecharge: 0
+  boostMeter: {fileID: 0}
+  speed: 0
+  speedometerText: {fileID: 0}
+  idleLoop: {fileID: 0}
+  fastLoop: {fileID: 0}
+  engineAS: {fileID: 0}
+  boostSource: {fileID: 0}
 --- !u!153 &5477050221288827535
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -1166,7 +1179,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5506448037405338577
 Transform:
   m_ObjectHideFlags: 0
